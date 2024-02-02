@@ -1,0 +1,27 @@
+.search {
+    position: relative;
+    display: inline-block;
+  }
+
+.search .searchBox {
+    height: 2rem;
+    width: 7rem;
+    padding: 0.5rem 2rem 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 1rem;
+    border: 1px solid rgb(213, 213, 239);
+    outline: none;
+    transition: width 0.4s ease-in-out;
+}
+
+.search .searchBox:focus {
+    width: 18rem;
+}
+
+.search .searchIcon {
+    position: absolute;
+    top: 50%;
+    right: 0.5rem; 
+    transform: translateY(-50%);
+    color: rgb(141, 141, 165); 
+  } 
