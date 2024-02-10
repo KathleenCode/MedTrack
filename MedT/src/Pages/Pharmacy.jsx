@@ -1,7 +1,8 @@
 import React from 'react';
 import Pharm from './Pharm';
-import Search from "../components/Search";
+import Search from "../components/Search/Search";
 import { useState } from 'react';
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Pharmacy() {
     const [drugName, setDrugName] = useState("");
@@ -9,6 +10,10 @@ export default function Pharmacy() {
     const [pricing, setPricing] = useState("");
     const [code, setCode] = useState("");
     const [price, setPrice] = useState(0);
+
+    const dispatch = useDispatch();
+    const pharmitems = useSelector(state => state.pharmItems.pharmItems);
+    const isLoading = useSelector(state => state.pharmItems.loading);
 
     const add = (e) => {
         e.preventDefault();
@@ -62,7 +67,10 @@ export default function Pharmacy() {
             <button>ADD</button>
         </form>
 
-        <Pharm />
+        {
+            isLoading ? (<p>loading...</p>) : (  <Pharm pharmitems={pharmitems} />)
+        }
+
     </div>
   )
 }

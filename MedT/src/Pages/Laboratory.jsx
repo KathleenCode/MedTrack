@@ -1,7 +1,8 @@
 import React from 'react';
 import Lab from "./Lab";
-import Search from "../components/Search";
+import Search from "../components/Search/Search";
 import { useState } from 'react';
+import { useDispatch, useSelector } from "react-redux";
 
 export default function Laboratory() {
     const [itemName, setItemName] = useState("");
@@ -10,6 +11,10 @@ export default function Laboratory() {
     const [subCategory, setSubCategory] = useState("");
     const [code, setCode] = useState("");
     const [price, setPrice] = useState(0);
+
+    const dispatch = useDispatch();
+    const labitems = useSelector(state => state.labItems.labItems);
+    const isLoading = useSelector(state => state.labItems.loading);
 
     const addOne = (e) => {
         e.preventDefault();
@@ -75,7 +80,9 @@ export default function Laboratory() {
             <button>ADD</button>
         </form>
 
-        <Lab />
+        {
+            isLoading ? (<p>Loading</p>) : (   <Lab labitems={labitems} />)
+        }
     </div>
   )
 }
