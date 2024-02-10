@@ -20,14 +20,14 @@ const Sidebar = () => {
                     </li>
 
                     <li>
-                        <Link>
+                        <Link to="pharmacy">
                             <MdOutlineLocalPharmacy />
                             <span>Pharmacy</span>
                         </Link>
                     </li>
 
                     <li>
-                        <Link>
+                        <Link to="laboratory">
                             <HiBeaker />
                             <span>Laboratory</span>
                         </Link>
