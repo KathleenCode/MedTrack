@@ -3,14 +3,10 @@ import asyncHandler from "express-async-handler"
 
 
 export const addLabItem = asyncHandler(async (req, res) => {
-    const { labItemName, mainCategory, subCategory, labItemCode, price } = req.body;
+    const { itemName, labType, mainCategory, subCategory, itemCode, price } = req.body;
 
     const newLabItem = await Lab.create({
-        itemtemName,
-        mainCategory,
-        subCategory,
-        itemCode,
-        price
+        itemName, labType, mainCategory, subCategory, itemCode, price
     })
 
     if (newLabItem) {
@@ -52,9 +48,9 @@ export const removeLabItem = asyncHandler(async (req, res) => {
 
 export const updateLabItem = asyncHandler(async (req, res) => {
     const { id } = req.params;
-    const { labItemName, mainCategory, subCategory, labItemCode, price } = req.body;
+    const { itemName, labType, mainCategory, subCategory, itemCode, price } = req.body;
 
-    const updatedItems = { labItemName, mainCategory, subCategory, labItemCode, price }
+    const updatedItems = { itemName, labType, mainCategory, subCategory, itemCode, price }
     const editedItem = await Lab.updateOne(
         {_id: id},
         updatedItems,

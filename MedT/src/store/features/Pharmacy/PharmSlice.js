@@ -6,11 +6,11 @@ const initialState = {
     error: null,
 }
 
-export const addPharmThunk = createAsyncThunk("pitems/addPharm", async(pitem) => {
+export const addPharmThunk = createAsyncThunk("pharmItems/addPharm", async(newMedicine) => {
     try {
-        const response = await fetch("http://localhost:9000/api/pharmitems", {
+        const response = await fetch("http://localhost:9000/api/medicines", {
             method: "POST",
-            body: JSON.stringify(pitem),
+            body: JSON.stringify(newMedicine),
             headers: {
                 "Content-Type": "application/json"
             }
@@ -22,21 +22,23 @@ export const addPharmThunk = createAsyncThunk("pitems/addPharm", async(pitem) =>
     }
 })
 
-export const fetchPharmThunk = createAsyncThunk("pitems/fetchPharm", async(pitems) =>  {
+export const fetchPharmThunk = createAsyncThunk("pharmItems/fetchPharm", async() =>  {
     try {
-        const response = await fetch("http://localhost:9000/api/pharmitems");
-        const data = await response.json(pitems);
+        const response = await fetch("http://localhost:9000/api/medicines");
+        const data = await response.json();
+        console.log('pharmslice',data)
         return data;
     } catch(error) {
         console.log(error);
     }
 })
 
-export const updatePharmThunk = createAsyncThunk("pitems/updatePharm", async(_id) => {
+export const updatePharmThunk = createAsyncThunk("pharmItems/updatePharm", async(medicines) => {
+    
     try {
-        const response = await fetch(`http://localhost:9000/api/pharmitems/${_id}`, {
+        const response = await fetch(`http://localhost:9000/api/medicines/${medicines.id}`, {
             method: "PUT",
-            body: JSON.stringify(),
+            body: JSON.stringify(medicines),
             headers: {
                 "Content-Type": "application/json"
             }
@@ -48,9 +50,9 @@ export const updatePharmThunk = createAsyncThunk("pitems/updatePharm", async(_id
     }
 })
 
-export const removePharmThunk = createAsyncThunk("pitems/removePharm", async(_id) => {
+export const removePharmThunk = createAsyncThunk("pharmItems/removePharm", async(_id) => {
     try {
-        const response = await fetch(`http://localhost:9000/api/pharmitems/${_id}`, {
+        const response = await fetch(`http://localhost:9000/api/medicines/${_id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"
@@ -64,14 +66,16 @@ export const removePharmThunk = createAsyncThunk("pitems/removePharm", async(_id
 })
 
 const pharmSlice = createSlice({
-    name: "pharmitems",
+    name: "pharmItems",
     initialState,
     reducers: {
         addPharm: (state, action) => {
             state.pharmItems.push(action.payload)
         },
 
-        fetchPharm,
+        fetchPharm: (state, action) => {
+            state.pharmItems = action.payload;
+        },
 
         updatePharm: (state, action) => {
             state.pharmItems = state.pharmItems.map(item => item.id === action.payload ? {...item, workedOn: !item.workedOn}: item)
@@ -98,6 +102,7 @@ const pharmSlice = createSlice({
             state.loading = true;
         })
         .addCase(fetchPharmThunk.fulfilled, (state, action) => {
+            console.log("fetch",action);
             state.loading = false;
             state.pharmItems = action.payload;
         })
