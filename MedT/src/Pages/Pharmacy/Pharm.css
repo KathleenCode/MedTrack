@@ -1,46 +1,34 @@
-.ph {
-    background-image: linear-gradient(#DCF2F1, #B7C9F2);
-    padding: 2rem 4rem;
-    margin: 1rem;
-    border-radius: 3px;
-    color: #2D033B;
+.ph { 
+    background-color: #bbd0ff;
+    padding: 2rem;
 }
 
 .grup {
-    display: flex;
-    background-image: linear-gradient(#B7C9F2, #DCF2F1);
-    padding: 1rem;
-    border-radius: 5px;
-    margin: 1rem;
+    margin: 2rem;
 }
 
 .grup form label {
-    margin-right: .3rem;
-    margin-bottom: .7rem;
+    color: #001242;
+    margin-right: 1rem;
+    font-weight: bold;
 }
 
 .grup form input {
-    /* border: 1px solid #400E32; */
-    border: none;
-    padding: .5rem;
+    margin-bottom: 1rem;
+    padding: .4rem 1rem;
+    background-color: #caf0f8;
     border-radius: 5px;
-    margin-bottom: .7rem;
-    outline-color: #C7B198;
-    color: #160040;
-    margin-left: 1rem;
+    border: 1px solid #fdf0d5;
+    margin-right: 1rem;
 }
 
 .grup button {
-    cursor: pointer;
-    background-color: #E6CCA9;
-    border: 2px solid #533535;
-    color: #79018C;
+    color: #ccdbdc;
+    background-color: #00a5cf;
+    padding: 1rem;
     padding: .5rem 2rem;
-    font-weight: bold;
-    border-radius: 4px;
+    border: 1px solid #304c89;
 }
+
 .grup .chart {
-    height: 50%;
-    width: 50%;
-    background-color: #fff;
 }

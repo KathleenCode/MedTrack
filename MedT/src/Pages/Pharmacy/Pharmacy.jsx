@@ -56,47 +56,32 @@ export default function Pharmacy() {
         </svg>
 
         <Search />
-        
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g clip-path="url(#clip0_1607_9289)">
-        <path d="M20 23V6C20 5.44772 19.5523 5 19 5H17M4 23V6C4 5.44772 4.44772 5 5 5H7M14 23V18C14 17.4477 13.5523 17 13 17H11C10.4477 17 10 17.4477 10 18V23M1 23H23M16 13.0001V13.0318M8 13.0001V13.0318M12 13.0001V13.0318M13.6001 4.9998L12.0005 4.99985M12.0005 4.99985L10.4 4.9999M12.0005 4.99985V6.5999M12.0005 4.99985V3.3999M7 2V8C7 8.55228 7.44772 9 8 9H16C16.5523 9 17 8.55228 17 8V2C17 1.44772 16.5523 1 16 1H8C7.44772 1 7 1.44772 7 2Z" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
-        </g>
-        <defs>
-        <clipPath id="clip0_1607_9289">
-        <rect width="24" height="24" fill="white"/>
-        </clipPath>
-        </defs>
-        </svg>
-
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M7 16H17M7 20H17M7 10.2678V7.31827M7 7.31827V4.73739C7 4.33014 7.33014 4 7.73739 4H9.02783C9.94415 4 10.687 4.74282 10.687 5.65914C10.687 6.57545 9.94415 7.31827 9.02783 7.31827H8.10609M7 7.31827H8.10609M12.8991 8.79306L11.24 10.4522M11.24 10.4522L9.58088 12.1113M11.24 10.4522L8.10609 7.31827M11.24 10.4522L12.8991 12.1113M5 23H19C19.5523 23 20 22.5523 20 22V2C20 1.44772 19.5523 1 19 1H5C4.44772 1 4 1.44772 4 2V22C4 22.5523 4.44772 23 5 23Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
 
         <div className="grup">
             <form onSubmit={add}>
                 <label htmlFor="drugName">Drug Name</label>
                 <input 
-                type="text" placeholder="Type drug name here" id="drugName"
+                type="text" placeholder="Type drug name here" id="drugName" name="drugName"
                 value={drugName} onChange={(e) => setDrugName(e.target.value)} 
                 /> <br />
                 <label htmlFor="description">Description</label>
                 <input 
-                type="text" placeholder="describe drug" id="description"
+                type="text" placeholder="describe drug" id="description" name="description"
                 value={description} onChange={(e) => setDescription(e.target.value)} 
                 /> <br />
                 <label htmlFor="pricing">Unit of Pricing</label>
                 <input 
-                type="text" placeholder="Tablet" id="pricing" 
+                type="text" placeholder="Tablet" id="pricing" name="pricing"
                 value={unitOfPricing} onChange={(e) => setPricing(e.target.value)}
                 /> <br />
                 <label htmlFor="code">Drug Code</label>
                 <input
-                type="text" placeholder="Aoc123FH" id="code"
+                type="text" placeholder="Aoc123FH" id="code" name="code"
                 value={drugCode} onChange={(e) => setCode(e.target.value)} 
                 /> <br />
                 <label htmlFor="price">Price</label>
                 <input 
-                type="number" placeholder="2.02" id="price"
+                type="number" placeholder="2.02" id="price" name="price"
                 value={price} onChange={(e) => setPrice(e.target.value)} 
                 /> <br />
                 <button>ADD</button>
