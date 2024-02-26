@@ -7,17 +7,17 @@ const Search = () => {
 
   let input;
 
-  useEffect(() => {
+  // useEffect(() => {
 
-      if(input !== "") {
-             const labFilter = labitems.labItems.filter((equipment) => {
-               Object.values(equipment).join('').toLowerCase().includes(input.toLowerCase())
-            })
+  //     if(input !== "") {
+  //            const labFilter = labitems.labItems.filter((equipment) => {
+  //              Object.values(equipment).join('').toLowerCase().includes(input.toLowerCase())
+  //           })
   
-            const pharmFilter = pharmitems.pharmItems.forEach((medicine) => {
-              Object.values(equipment).join('').toLowerCase().includes(input.toLowerCase())
-          })
-    }})
+  //           const pharmFilter = pharmitems.pharmItems.forEach((medicine) => {
+  //             Object.values(equipment).join('').toLowerCase().includes(input.toLowerCase())
+  //         })
+  //   }})
 
   return (
     <>

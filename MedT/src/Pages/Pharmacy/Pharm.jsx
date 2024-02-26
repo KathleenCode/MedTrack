@@ -6,7 +6,7 @@ export default function Pharm({pharmitems}) {
   const [search, setSearch] = useState("");
 
   const medicines = useMemo(() => {
-    if(!search) return pharmitems;
+    if(!search) return pharmitems.pharmItems;
     return pharmitems.pharmItems.filter(med => {
       return Object.values(med).join('').toLowerCase().includes(search.toLowerCase())
     })
@@ -27,7 +27,7 @@ export default function Pharm({pharmitems}) {
         </div>
 
       <div>
-        <table>
+        <table style={{border: "1px solid black"}}>
         <thead>
               <tr>
                 <th>Drug Name</th>

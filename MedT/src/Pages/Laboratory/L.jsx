@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 import { useDispatch } from "react-redux";
 import { updateLabThunk, removeLabThunk } from "../../store/features/Laboratory/LabSlice";
 import LabUpPopup from '../../components/PopUp/LabUpPopup';
-import Modal from "react-modal";
+import Model from "react-modal";
 
 export default function L({labitem}) {
   console.log("item", labitem);
@@ -47,7 +47,7 @@ export default function L({labitem}) {
   return (
     <>
         <div>
-          <table>
+          <table style={{border: "1px solid black"}}>
             {
               <tbody>
                 <tr>
@@ -115,23 +115,25 @@ export default function L({labitem}) {
                       view
                     </button>
 
-                    <Modal isOpen={visible} onRequestClose={() => setVisible(false)} style={{
+                    <Model isOpen={visible} onRequestClose={() => setVisible(false)} style={{
                       overlay: {
-                        background: "blue"
+                        background: "#33415c"
                       },
                       content: {
-                        width: "500px",
-                        height: "500px"
+                        width: "700px",
+                        height: "300px",
+                        marginTop: "10%",
+                        marginLeft: "10%"
                       }
                     }}>
-                    <td>{labitem.itemName}</td>
-                    <td>{labitem.labType}</td>
-                    <td>{labitem.mainCategory}</td>
-                    <td>{labitem.subCategory}</td>
-                    <td>{labitem.itemCode}</td>
-                    <td>{labitem.price}</td>
                     <button onClick={() => setVisible(false)}>Go Back</button>
-                    </Modal>
+                    <p>{labitem.itemName}</p>
+                    <p>{labitem.labType}</p>
+                    <p>{labitem.mainCategory}</p>
+                    <p>{labitem.subCategory}</p>
+                    <p>{labitem.itemCode}</p>
+                    <p>{labitem.price}</p>
+                    </Model>
 
                   </td>
                 </tr>

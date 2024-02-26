@@ -6,7 +6,7 @@ export default function Lab({labitems}) {
   const [search, setSearch] = useState("");
 
   const equipments = useMemo(() => {
-    if(!search) return labitems;
+    if(!search) return labitems.labItems;
     return labitems.labItems.filter(equip => {
       return Object.values(equip).join('').toLowerCase().includes(search.toLowerCase());
       // return equip.name.toLowerCase().includes(search.toLowerCase()) 
@@ -28,7 +28,7 @@ export default function Lab({labitems}) {
         </div>
 
       <div>
-        <table>
+        <table style={{border: "1px solid black"}}>
           <thead>
                 <tr>
                   <th>Item Name</th>
