@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react'
 import P from "./P";
 import { IoSearch } from "react-icons/io5";
+import "./Pharm.css";
 
 export default function Pharm({pharmitems}) {
   const [search, setSearch] = useState("");
@@ -27,7 +28,7 @@ export default function Pharm({pharmitems}) {
             <IoSearch className='searchIcon'/>
         </div>
 
-      <div>
+      <div className="ptable">
         <table>
         <thead>
               <tr>

@@ -6,6 +6,7 @@ import {
   fetchLabThunk
 } from "../../store/features/Laboratory/LabSlice";
 import Model from "react-modal";
+import toast, {Toaster} from "react-hot-toast";
 
 export default function L({labitem}) {
   const dispatch = useDispatch();
@@ -62,7 +63,7 @@ export default function L({labitem}) {
 
   return (
     <>
-      <div>
+      <div className="ltablee">
         <table style={{ border: "1px solid black" }}>
           {
             <tbody>
@@ -141,7 +142,18 @@ export default function L({labitem}) {
                 </Model>
 
                 <td>
-                  <button onClick={() => del(labitem._id)}>delete</button>
+                  <button onClick={() => 
+                    {
+                      del(labitem._id);
+                    toast("equipment deleted successfully", {
+                      position: "top-center",
+                      style: {
+                        background: "#ba324f",
+                        color: "white"
+                      },
+                      duration: 4000,
+                    });}}>delete</button>
+                    <Toaster />
                 </td>
                 <td>
                   <button onClick={() => setVisible(true)}>view</button>
@@ -151,23 +163,27 @@ export default function L({labitem}) {
                     onRequestClose={() => setVisible(false)}
                     style={{
                       overlay: {
-                        background: "#5c677d",
+                        background: "#transparent",
                       },
                       content: {
-                        width: "700px",
-                        height: "300px",
+                        backgroundColor: "#545e75",
+                        width: "300px",
+                        color: "#d5c67a",
+                        height: "250px",
                         marginTop: "10%",
-                        marginLeft: "10%",
+                        borderLeft: "9px solid #ab3428",
+                        marginLeft: "25%",
+                        textAlign: "center",
                       },
                     }}
                   >
                     <button onClick={() => setVisible(false)}>Go Back</button>
-                      <p>{labitem.itemName}</p>
-                      <p>{labitem.labType}</p>
-                      <p>{labitem.mainCategory}</p>
-                      <p>{labitem.subCategory}</p>
-                      <p>{labitem.itemCode}</p>
-                      <p>{labitem.price}</p>
+                      <p>ItemName:<span style={{color: "#a31621"}}>{labitem.itemName}</span></p>
+                      <p>LabType:<span style={{color: "#a31621"}}>{labitem.labType}</span></p>
+                      <p>MainCategory:<span style={{color: "#a31621"}}>{labitem.mainCategory}</span></p>
+                      <p>SubCategory:<span style={{color: "#a31621"}}>{labitem.subCategory}</span></p>
+                      <p>ItemCode:<span style={{color: "#a31621"}}>{labitem.itemCode}</span></p>
+                      <p>Price:<span style={{color: "#a31621"}}>{labitem.price}</span></p>
                   </Model>
                 </td>
               </tr>

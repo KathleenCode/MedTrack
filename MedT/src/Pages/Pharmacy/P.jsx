@@ -6,6 +6,8 @@ import {
   fetchPharmThunk
 } from "../../store/features/Pharmacy/PharmSlice";
 import Model from "react-modal";
+import toast, {Toaster} from "react-hot-toast";
+import "./Pharm.css";
 
 export default function P({ pharmitem }) {
   const dispatch = useDispatch();
@@ -61,7 +63,7 @@ export default function P({ pharmitem }) {
       <div>
         <table style={{ border: "1px solid black" }}>
           {
-            <tbody>
+            <tbody className="ptablee">
               <tr>
                 <td>{pharmitem.drugName}</td>
                 <td>{pharmitem.description}</td>
@@ -146,7 +148,18 @@ export default function P({ pharmitem }) {
                 </Model>
 
                 <td>
-                  <button onClick={() => dele(pharmitem._id)}>delete</button>
+                  <button onClick={() => 
+                    {
+                      dele(pharmitem._id); 
+                      toast("Medicine deleted successfully", {
+                        position: "top-center",
+                        style: {
+                          background: "#a6e1fa",
+                          color: "blue"
+                        },
+                        duration: 4000
+                      });}}>delete</button>
+                      <Toaster />
                 </td>
                 <td>
                   <button onClick={() => setVisible(true)}>view</button>
@@ -156,22 +169,26 @@ export default function P({ pharmitem }) {
                     onRequestClose={() => setVisible(false)}
                     style={{
                       overlay: {
-                        background: "#5c677d",
+                        background: "#transparent",
                       },
                       content: {
-                        width: "700px",
-                        height: "300px",
+                        backgroundColor: "#7e6c6c",
+                        width: "300px",
+                        height: "250px",
+                        color: "#f5efff",
                         marginTop: "10%",
-                        marginLeft: "10%",
+                        marginLeft: "25%",
+                        borderLeft: "9px solid #ffba08",
+                        textAlign: "center",
                       },
                     }}
                   >
                     <button onClick={() => setVisible(false)}>Go Back</button>
-                    <p>{pharmitem.drugName}</p>
-                    <p>{pharmitem.description}</p>
-                    <p>{pharmitem.price}</p>
-                    <p>{pharmitem.drugCode}</p>
-                    <p>{pharmitem.unitOfPricing}</p>
+                    <p>DrugName:<span style={{color: "#2c0735"}}>{pharmitem.drugName}</span></p>
+                    <p>Description:<span style={{color: "#2c0735"}}>{pharmitem.description}</span></p>
+                    <p>Price:<span style={{color: "#2c0735"}}>{pharmitem.price}</span></p>
+                    <p>DrugCode:<span style={{color: "#2c0735"}}>{pharmitem.drugCode}</span></p>
+                    <p>UnitOfPricing:<span style={{color: "#2c0735"}}>{pharmitem.unitOfPricing}</span></p>
                   </Model>
                 </td>
               </tr>

@@ -74,7 +74,7 @@ export default function Laboratory() {
                 </select> <br />
                 <label htmlFor="mainCategory">Main Category</label>
                 <select name="mainCategory" id="mainCategory" value={mainCategory} onChange={(e) => setMainCategory(e.target.value)} >
-                    {/* <option value="Microbiology">Microbiology</option> */}
+                    <option value="Choose">Choose Below</option>
                     <option value="Radiology">Radiology</option>
                     <option value="Laboratory">Laboratory</option>
                     {/* <option value="Bacteriology">Bacteriology</option>

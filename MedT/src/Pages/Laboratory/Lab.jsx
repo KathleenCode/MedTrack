@@ -25,7 +25,7 @@ export default function Lab({labitems}) {
             <IoSearch className='searchIcon'/>
         </div>
 
-      <div>
+      <div className="ltable">
         <table>
           <thead>
                 <tr>
@@ -35,6 +35,8 @@ export default function Lab({labitems}) {
                   <th>Sub Category</th>
                   <th>Code</th>
                   <th>Price</th>
+                  <th>Action</th>
+                  <th>Action</th>
                 </tr>
               </thead>
         </table>
