@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import Lab from "./Lab";
-import Search from "../../components/Search/Search";
 import { useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { addLabThunk, fetchLabThunk } from "../../store/features/Laboratory/LabSlice";
@@ -59,7 +58,6 @@ export default function Laboratory() {
         </defs>
         </svg>
         
-        <Search />
 
         <div className="group">
             <form onSubmit={addOne}>
@@ -76,11 +74,11 @@ export default function Laboratory() {
                 </select> <br />
                 <label htmlFor="mainCategory">Main Category</label>
                 <select name="mainCategory" id="mainCategory" value={mainCategory} onChange={(e) => setMainCategory(e.target.value)} >
-                    <option value="Microbiology">Microbiology</option>
+                    {/* <option value="Microbiology">Microbiology</option> */}
                     <option value="Radiology">Radiology</option>
                     <option value="Laboratory">Laboratory</option>
-                    <option value="Bacteriology">Bacteriology</option>
-                    <option value="Virology">Virology</option>
+                    {/* <option value="Bacteriology">Bacteriology</option>
+                    <option value="Virology">Virology</option> */}
                 </select> <br />
                 <label htmlFor="subCategory">Sub Category</label>
                 <input 
