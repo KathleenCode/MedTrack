@@ -177,13 +177,13 @@ export default function L({labitem}) {
                       },
                     }}
                   >
-                    <button onClick={() => setVisible(false)}>Go Back</button>
-                      <p>ItemName:<span style={{color: "#a31621"}}>{labitem.itemName}</span></p>
-                      <p>LabType:<span style={{color: "#a31621"}}>{labitem.labType}</span></p>
-                      <p>MainCategory:<span style={{color: "#a31621"}}>{labitem.mainCategory}</span></p>
-                      <p>SubCategory:<span style={{color: "#a31621"}}>{labitem.subCategory}</span></p>
-                      <p>ItemCode:<span style={{color: "#a31621"}}>{labitem.itemCode}</span></p>
-                      <p>Price:<span style={{color: "#a31621"}}>{labitem.price}</span></p>
+                    <button style={{padding: ".7rem .9rem"}} onClick={() => setVisible(false)}>Go Back</button>
+                      <p style={{marginBottom: "1rem"}}>ItemName:<span style={{color: "#a31621"}}>{labitem.itemName}</span></p>
+                      <p style={{marginBottom: "1rem"}}>LabType:<span style={{color: "#a31621"}}>{labitem.labType}</span></p>
+                      <p style={{marginBottom: "1rem"}}>MainCategory:<span style={{color: "#a31621"}}>{labitem.mainCategory}</span></p>
+                      <p style={{marginBottom: "1rem"}}>SubCategory:<span style={{color: "#a31621"}}>{labitem.subCategory}</span></p>
+                      <p style={{marginBottom: "1rem"}}>ItemCode:<span style={{color: "#a31621"}}>{labitem.itemCode}</span></p>
+                      <p style={{marginBottom: "1rem"}}>Price:<span style={{color: "#a31621"}}>{labitem.price}</span></p>
                   </Model>
                 </td>
               </tr>

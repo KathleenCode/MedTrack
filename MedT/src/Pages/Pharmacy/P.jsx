@@ -183,12 +183,12 @@ export default function P({ pharmitem }) {
                       },
                     }}
                   >
-                    <button onClick={() => setVisible(false)}>Go Back</button>
-                    <p>DrugName:<span style={{color: "#2c0735"}}>{pharmitem.drugName}</span></p>
-                    <p>Description:<span style={{color: "#2c0735"}}>{pharmitem.description}</span></p>
-                    <p>Price:<span style={{color: "#2c0735"}}>{pharmitem.price}</span></p>
-                    <p>DrugCode:<span style={{color: "#2c0735"}}>{pharmitem.drugCode}</span></p>
-                    <p>UnitOfPricing:<span style={{color: "#2c0735"}}>{pharmitem.unitOfPricing}</span></p>
+                    <button style={{padding: ".7rem .9rem"}} onClick={() => setVisible(false)}>Go Back</button>
+                    <p style={{marginBottom: "1rem"}}>DrugName:<span style={{color: "#2c0735"}}>{pharmitem.drugName}</span></p>
+                    <p style={{marginBottom: "1rem"}}>Description:<span style={{color: "#2c0735"}}>{pharmitem.description}</span></p>
+                    <p style={{marginBottom: "1rem"}}>Price:<span style={{color: "#2c0735"}}>{pharmitem.price}</span></p>
+                    <p style={{marginBottom: "1rem"}}>DrugCode:<span style={{color: "#2c0735"}}>{pharmitem.drugCode}</span></p>
+                    <p style={{marginBottom: "1rem"}}>UnitOfPricing:<span style={{color: "#2c0735"}}>{pharmitem.unitOfPricing}</span></p>
                   </Model>
                 </td>
               </tr>
