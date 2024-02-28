@@ -82,7 +82,7 @@ export default function P({ pharmitem }) {
                       background: "#5c677d",
                     },
                     content: {
-                      width: "700px",
+                      width: "400px",
                       height: "300px",
                       marginTop: "10%",
                       marginLeft: "10%",
@@ -173,7 +173,7 @@ export default function P({ pharmitem }) {
                       },
                       content: {
                         backgroundColor: "#7e6c6c",
-                        width: "300px",
+                        width: "350px",
                         height: "250px",
                         color: "#f5efff",
                         marginTop: "10%",
@@ -183,7 +183,7 @@ export default function P({ pharmitem }) {
                       },
                     }}
                   >
-                    <button style={{padding: ".7rem .9rem"}} onClick={() => setVisible(false)}>Go Back</button>
+                    <button style={{padding: ".7rem .9rem", marginBottom: "1rem"}} onClick={() => setVisible(false)}>Go Back</button>
                     <p style={{marginBottom: "1rem"}}>DrugName:<span style={{color: "#2c0735"}}>{pharmitem.drugName}</span></p>
                     <p style={{marginBottom: "1rem"}}>Description:<span style={{color: "#2c0735"}}>{pharmitem.description}</span></p>
                     <p style={{marginBottom: "1rem"}}>Price:<span style={{color: "#2c0735"}}>{pharmitem.price}</span></p>

@@ -86,7 +86,7 @@ export default function L({labitem}) {
                       background: "#5c677d",
                     },
                     content: {
-                      width: "700px",
+                      width: "400px",
                       height: "300px",
                       marginTop: "10%",
                       marginLeft: "10%",
@@ -167,7 +167,7 @@ export default function L({labitem}) {
                       },
                       content: {
                         backgroundColor: "#545e75",
-                        width: "300px",
+                        width: "350px",
                         color: "#d5c67a",
                         height: "250px",
                         marginTop: "10%",
@@ -177,7 +177,7 @@ export default function L({labitem}) {
                       },
                     }}
                   >
-                    <button style={{padding: ".7rem .9rem"}} onClick={() => setVisible(false)}>Go Back</button>
+                    <button style={{padding: ".7rem .9rem", marginBottom: "1rem"}} onClick={() => setVisible(false)}>Go Back</button>
                       <p style={{marginBottom: "1rem"}}>ItemName:<span style={{color: "#a31621"}}>{labitem.itemName}</span></p>
                       <p style={{marginBottom: "1rem"}}>LabType:<span style={{color: "#a31621"}}>{labitem.labType}</span></p>
                       <p style={{marginBottom: "1rem"}}>MainCategory:<span style={{color: "#a31621"}}>{labitem.mainCategory}</span></p>
