@@ -35,6 +35,7 @@ export const fetchLabThunk = createAsyncThunk("labItems/fetchLab", async() => {
 })
 
 export const updateLabThunk = createAsyncThunk("labItems/updateLab", async(equipment) => {
+    console.log("equipment", equipment);
     try {
         const response = await fetch(`http://localhost:9000/api/equipment/${equipment.id}`, {
             method: "PUT",
@@ -118,7 +119,7 @@ const labSlice = createSlice({
         })
         .addCase(updateLabThunk.fulfilled, (state, action) => {
             state.loading = false;
-            state.labItems = state.labItems.map(item => item._id === action.payload._id? action.payload : t);
+            state.labItems = state.labItems.map(item => item._id === action.payload._id? action.payload : item);
         })
         .addCase(updateLabThunk.rejected, (state, action) => {
             state.loading = false;

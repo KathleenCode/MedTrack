@@ -9,8 +9,6 @@ export default function Lab({labitems}) {
     if(!search) return labitems.labItems;
     return labitems.labItems.filter(equip => {
       return Object.values(equip).join('').toLowerCase().includes(search.toLowerCase());
-      // return equip.name.toLowerCase().includes(search.toLowerCase()) 
-      //      || equip.code.toLowerCase().includes(search.toLowerCase())
     })
   }, [search, labitems])
 
@@ -27,8 +25,8 @@ export default function Lab({labitems}) {
             <IoSearch className='searchIcon'/>
         </div>
 
-      <div>
-        <table style={{border: "1px solid black"}}>
+      <div className="ltable">
+        <table>
           <thead>
                 <tr>
                   <th>Item Name</th>
@@ -37,6 +35,8 @@ export default function Lab({labitems}) {
                   <th>Sub Category</th>
                   <th>Code</th>
                   <th>Price</th>
+                  <th>Action</th>
+                  <th>Action</th>
                 </tr>
               </thead>
         </table>

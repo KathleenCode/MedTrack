@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import Pharm from './Pharm';
-import Search from "../../components/Search/Search";
 import { useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { addPharmThunk, fetchPharmThunk } from "../../store/features/Pharmacy/PharmSlice";
@@ -54,8 +53,6 @@ export default function Pharmacy() {
         </clipPath>
         </defs>
         </svg>
-
-        <Search />
 
         <div className="grup">
             <form onSubmit={add}>

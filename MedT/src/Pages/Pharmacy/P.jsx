@@ -5,8 +5,9 @@ import {
   removePharmThunk,
   fetchPharmThunk
 } from "../../store/features/Pharmacy/PharmSlice";
-// import PhUpPopup from "../../components/PopUp/PhUpPopup";
 import Model from "react-modal";
+import toast, {Toaster} from "react-hot-toast";
+import "./Pharm.css";
 
 export default function P({ pharmitem }) {
   const dispatch = useDispatch();
@@ -16,7 +17,7 @@ export default function P({ pharmitem }) {
   const [unitOfPricing, setPricing] = useState("");
   const [drugCode, setCode] = useState("");
   const [price, setPrice] = useState(0);
-  const [pop, setPop] = useState(false);
+  // const [pop, setPop] = useState(false);
   const [visible, setVisible] = useState(false);
   const [updateModal, setUpdateModal] = useState(false);
 
@@ -41,9 +42,7 @@ export default function P({ pharmitem }) {
   };
 
   const dele = (id) => {
-    if (confirm("Do you really want to delete this medicine from pharmacy")) {
       dispatch(removePharmThunk(id));
-    }
   };
 
   const openModall = () => {
@@ -64,7 +63,7 @@ export default function P({ pharmitem }) {
       <div>
         <table style={{ border: "1px solid black" }}>
           {
-            <tbody>
+            <tbody className="ptablee">
               <tr>
                 <td>{pharmitem.drugName}</td>
                 <td>{pharmitem.description}</td>
@@ -83,7 +82,7 @@ export default function P({ pharmitem }) {
                       background: "#5c677d",
                     },
                     content: {
-                      width: "700px",
+                      width: "400px",
                       height: "300px",
                       marginTop: "10%",
                       marginLeft: "10%",
@@ -149,7 +148,18 @@ export default function P({ pharmitem }) {
                 </Model>
 
                 <td>
-                  <button onClick={() => dele(pharmitem._id)}>delete</button>
+                  <button onClick={() => 
+                    {
+                      dele(pharmitem._id); 
+                      toast("Medicine deleted successfully", {
+                        position: "top-center",
+                        style: {
+                          background: "#a6e1fa",
+                          color: "blue"
+                        },
+                        duration: 4000
+                      });}}>delete</button>
+                      <Toaster />
                 </td>
                 <td>
                   <button onClick={() => setVisible(true)}>view</button>
@@ -159,22 +169,26 @@ export default function P({ pharmitem }) {
                     onRequestClose={() => setVisible(false)}
                     style={{
                       overlay: {
-                        background: "#5c677d",
+                        background: "#transparent",
                       },
                       content: {
-                        width: "700px",
-                        height: "300px",
+                        backgroundColor: "#7e6c6c",
+                        width: "350px",
+                        height: "250px",
+                        color: "#f5efff",
                         marginTop: "10%",
-                        marginLeft: "10%",
+                        marginLeft: "25%",
+                        borderLeft: "9px solid #ffba08",
+                        textAlign: "center",
                       },
                     }}
                   >
-                    <button onClick={() => setVisible(false)}>Go Back</button>
-                    <p>{pharmitem.drugName}</p>
-                    <p>{pharmitem.description}</p>
-                    <p>{pharmitem.price}</p>
-                    <p>{pharmitem.drugCode}</p>
-                    <p>{pharmitem.unitOfPricing}</p>
+                    <button style={{padding: ".7rem .9rem", marginBottom: "1rem"}} onClick={() => setVisible(false)}>Go Back</button>
+                    <p style={{marginBottom: "1rem"}}>DrugName:<span style={{color: "#2c0735"}}>{pharmitem.drugName}</span></p>
+                    <p style={{marginBottom: "1rem"}}>Description:<span style={{color: "#2c0735"}}>{pharmitem.description}</span></p>
+                    <p style={{marginBottom: "1rem"}}>Price:<span style={{color: "#2c0735"}}>{pharmitem.price}</span></p>
+                    <p style={{marginBottom: "1rem"}}>DrugCode:<span style={{color: "#2c0735"}}>{pharmitem.drugCode}</span></p>
+                    <p style={{marginBottom: "1rem"}}>UnitOfPricing:<span style={{color: "#2c0735"}}>{pharmitem.unitOfPricing}</span></p>
                   </Model>
                 </td>
               </tr>

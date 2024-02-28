@@ -28,7 +28,82 @@
     padding: 1rem;
     padding: .5rem 2rem;
     border: 1px solid #304c89;
+    cursor: pointer;
 }
 
 .grup .chart {
 }
+
+
+.ptable table {
+    border-collapse: collapse;
+    width: 90%;
+  }
+  .ptable th {
+    border: 1px solid #979dac;
+    text-align: center;
+    padding: 6px;
+    padding-left: 6px;
+    font-size: .8rem;
+    background-color: #012a4a;
+    color: #bbd0ff;
+  }
+
+
+.ptablee table {
+    border-collapse: collapse;
+    width: 90%;
+  }
+
+  .ptablee td {
+    border: 1px solid #caf0f8;
+    text-align: center;
+    padding: 6px;
+    padding-left: 6px;
+    font-size: .8rem;
+  }
+  .ptablee th {
+    background-color: #00b4d8;
+    color: #caf0f8;
+  }
+  .ptablee td {
+    background-color: #5c677d;
+  }
+  .ptablee td:hover {
+    background-color: #a3bac3;
+  }
+
+  /* .ptablee td:last-child {
+    display: flex;
+    justify-content: space-evenly;
+  } */
+  
+
+
+  .search {
+    position: relative;
+    display: inline-block;
+  }
+
+.search .searchBox {
+    height: 2rem;
+    width: 7rem;
+    padding: 0.5rem 2rem 0.5rem 1rem;
+    font-size: 1rem;
+    border-radius: 1rem;
+    border: 1px solid rgb(213, 213, 239);
+    outline: none;
+    transition: width 0.4s ease-in-out;
+}
+
+.search .searchBox:focus {
+    width: 18rem;
+}
+
+.search .searchIcon {
+    position: absolute;
+    top: 50%;
+    right: 0.5rem; 
+    transform: translateY(-50%);
+    color: rgb(141, 141, 165); 
+  } 
