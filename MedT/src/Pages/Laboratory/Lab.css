@@ -1,4 +1,4 @@
-.laby {
+/* .laby {
     background-color: #b8c0ff;
     padding: 2rem;
 }
@@ -28,7 +28,7 @@
     padding: .5rem 2rem;
     border: 1px solid #304c89;
     cursor: pointer;
-}
+} */
 
 .group .chart {
 }
@@ -102,3 +102,30 @@
     transform: translateY(-50%);
     color: rgb(141, 141, 165); 
   } 
+
+
+  .modalTablel {
+    background-color: #cce6f4;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 1rem;
+  }
+
+  .modalTablel label {
+    color: #00072d;
+    background-color: #dbfbec;
+    margin-right: .5rem;
+  }
+
+  .modalTablel input {
+    border: 1px solid #52aa8a;
+    background-color: #90caf9;
+    color: #2400ff;
+  }
+
+  .modalTablel button {
+    background-color: #a594f9;
+    padding: .3rem .5rem;
+    border-radius: 2px;
+    margin-top: 1rem;
+  }

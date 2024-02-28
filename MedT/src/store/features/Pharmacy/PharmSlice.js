@@ -34,11 +34,7 @@ export const fetchPharmThunk = createAsyncThunk("pharmItems/fetchPharm", async()
 })
 
 export const updatePharmThunk = createAsyncThunk("pharmItems/updatePharm", async(medicines) => {
-<<<<<<< HEAD
     console.log("medicine", medicines)
-=======
-    console.log("medicines", medicines)
->>>>>>> de0659ee3025b6f8a4badfc478de52d1fe9d0ee2
     try {
         const response = await fetch(`http://localhost:9000/api/medicines/${medicines.id}`, {
             method: "PUT",

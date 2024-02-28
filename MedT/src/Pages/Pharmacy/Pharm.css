@@ -1,4 +1,4 @@
-.ph { 
+/* .ph { 
     background-color: #bbd0ff;
     padding: 2rem;
 }
@@ -71,7 +71,7 @@
   }
   .ptablee td:hover {
     background-color: #a3bac3;
-  }
+  } */
 
   /* .ptablee td:last-child {
     display: flex;
@@ -107,3 +107,31 @@
     transform: translateY(-50%);
     color: rgb(141, 141, 165); 
   } 
+
+
+  .modalTablep {
+    background-color: #a3bac3;
+    border-radius: 12px;
+    padding: 2rem;
+    margin: 1rem;
+  }
+
+  .modalTablep label {
+    color: #031d44;
+    background-color: #cfdee7;
+    margin-right: .5rem;
+  }
+
+  .modalTablep input {
+    border: 1px solid #7fefbd;
+    background-color: #bbdefb;
+    color: #001021;
+  }
+
+  .modalTablep button {
+    background-color: #e5d9f2;
+    padding: .3rem .5rem;
+    border-radius: 2px;
+    margin-top: 1rem;
+    cursor: pointer;
+  }

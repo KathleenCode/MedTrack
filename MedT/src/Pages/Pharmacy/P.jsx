@@ -17,7 +17,7 @@ export default function P({ pharmitem }) {
   const [unitOfPricing, setPricing] = useState("");
   const [drugCode, setCode] = useState("");
   const [price, setPrice] = useState(0);
-  // const [pop, setPop] = useState(false);
+  const [pop, setPop] = useState(false);
   const [visible, setVisible] = useState(false);
   const [updateModal, setUpdateModal] = useState(false);
 
@@ -76,7 +76,8 @@ export default function P({ pharmitem }) {
 
                 <Model
                   isOpen={updateModal}
-                  onRequestClose={() => openModal()}
+                  onRequestClose={() => openModal()
+                  }
                   style={{
                     overlay: {
                       background: "#5c677d",
@@ -90,7 +91,7 @@ export default function P({ pharmitem }) {
                   }}
                 >
                   <button onClick={() => setUpdateModal(false)}>Go Back</button>
-                  <div>
+                  <div className="modalTablep">
                     <label htmlFor="drugName">Drug Name</label>
                     <input
                       type="text"
@@ -141,14 +142,25 @@ export default function P({ pharmitem }) {
                       onChange={(e) => setPrice(e.target.value)}
                     />{" "}
                     <br />
-                    <button onClick={() => updateOne(pharmitem._id)}>
+                    <button onClick={() => { updateOne(pharmitem._id);
+                    toast("Drug information updated successfully", {
+                      position: "top-center",
+                      style: {
+                    background: "#a6e1fa",
+                    color: "blue"
+                    },
+                    duration: 3000
+                  });
+                  setUpdateModal(false);
+                }}>
                       update item
                     </button>
+                    <Toaster />
                   </div>
                 </Model>
 
                 <td>
-                  <button onClick={() => 
+                  {/* <button onClick={() => 
                     {
                       dele(pharmitem._id); 
                       toast("Medicine deleted successfully", {
@@ -159,10 +171,54 @@ export default function P({ pharmitem }) {
                         },
                         duration: 4000
                       });}}>delete</button>
-                      <Toaster />
+                      <Toaster /> */}
+                      <button onClick={() => setPop(true)} >delete</button>
+                      <Model isOpen={pop}
+                           onRequestClose={() => setPop(false)}
+                          style={{
+                                overlay: {
+                                 background: "#transparent",
+                              },
+                              content: {
+                                backgroundColor: "#7e6c6c",
+                                width: "350px",
+                                height: "250px",
+                                color: "#f5efff",
+                                marginTop: "10%",
+                                marginLeft: "25%",
+                                borderLeft: "9px solid #ffba08",
+                                textAlign: "center",
+                              },
+                            }}>
+                        <h3>Are you certain that this medicine should be deleted?</h3>
+                        <span onClick={() => 
+                                 {
+                             dele(pharmitem._id); 
+                             toast("Medicine deleted successfully", {
+                               position: "bottom-left",
+                               style: {
+                             background: "#a6e1fa",
+                             color: "blue"
+                        },
+                        duration: 4000
+                      });
+                      setPop(false);
+                      }}>Yes</span><Toaster /><span onClick={() => setPop(false)}>No</span>
+                      </Model>
                 </td>
                 <td>
-                  <button onClick={() => setVisible(true)}>view</button>
+                  <button onClick={() => {
+                    setVisible(true);
+                    toast("Currently viewing drug in pharmacy", {
+                      position: "top-left",
+                      style: {
+                    background: "#a6e1fa",
+                    color: "blue"
+                    },
+                    duration: 2000
+                  });}
+                  }>view</button>
+                  <Toaster />
 
                   <Model
                     isOpen={visible}

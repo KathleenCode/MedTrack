@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { addLabThunk, fetchLabThunk } from "../../store/features/Laboratory/LabSlice";
 import "./Lab.css";
+import toast, {Toaster} from 'react-hot-toast';
 
 export default function Laboratory() {
     const [itemName, setItemName] = useState("");
@@ -31,6 +32,15 @@ export default function Laboratory() {
         }
         console.log(labItem);
         dispatch(addLabThunk(labItem));
+
+        toast("Equipment added successfully", {
+            position: "top-center",
+            style: {
+              background: "#ba324f",
+              color: "white"
+            },
+            duration: 2000,
+          });
         
         setItemName("");
         setLabType("");
@@ -58,11 +68,17 @@ export default function Laboratory() {
         </defs>
         </svg>
         
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M5 1H18M7 6H16M7 9H9.82983M7 13H9.82983M7 17H9.82983M7 1H16V18.5C16 20.9853 13.9853 23 11.5 23C9.01472 23 7 20.9853 7 18.5V1Z" stroke="black" stroke-width="1.5" stroke-linecap="round"/>
+        </svg>
+
 
         <div className="group">
             <form onSubmit={addOne}>
+                <Toaster />
                 <label htmlFor="itemName">Lab Item Name</label>
                 <input 
+                autoComplete="false"
                 type="text" placeholder="Type lab name here" id="itemName"  name="itemName"
                 value={itemName} onChange={(e) => setItemName(e.target.value)}
                 />

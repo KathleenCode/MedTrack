@@ -17,7 +17,7 @@ export default function L({labitem}) {
   const [subCategory, setSubCategory] = useState("");
   const [itemCode, setCode] = useState("");
   const [price, setPrice] = useState(0);
-  // const [pop, setPop] = useState(false);
+  const [pop, setPop] = useState(false);
   const [visible, setVisible] = useState(false);
   const [updateModal, setUpdateModal] = useState(false);
 
@@ -94,7 +94,7 @@ export default function L({labitem}) {
                   }}
                 >
                   <button onClick={() => setUpdateModal(false)}>Go Back</button>
-                  <div>
+                  <div className="modalTablel">
                     <label htmlFor="itemName">Lab Item Name</label>
                     <input
                       type="text"
@@ -135,14 +135,26 @@ export default function L({labitem}) {
                       value={price} onChange={(e) => setPrice(e.target.value)} 
                       /> <br />{" "}
                     <br />
-                    <button onClick={() => updateOne(labitem._id)}>
+                    <button onClick={() => { 
+                      updateOne(labitem._id);
+                      toast("Medicine updated successfully", {
+                        position: "top-left",
+                        style: {
+                        background: "#a6e1fa",
+                        color: "blue"
+                        },
+                        duration: 3000
+                      });
+                      setUpdateModal(false);
+                      }}>
                       update item
                     </button>
+                    <Toaster />
                   </div>
                 </Model>
 
                 <td>
-                  <button onClick={() => 
+                  {/* <button onClick={() => 
                     {
                       del(labitem._id);
                     toast("equipment deleted successfully", {
@@ -153,10 +165,53 @@ export default function L({labitem}) {
                       },
                       duration: 4000,
                     });}}>delete</button>
-                    <Toaster />
+                    <Toaster /> */}
+                    <button onClick={() => setPop(true)} >delete</button>
+                    <Model  isOpen={pop}
+                    onRequestClose={() => setPop(false)}  style={{
+                      overlay: {
+                        background: "#transparent",
+                      },
+                      content: {
+                        backgroundColor: "#545e75",
+                        width: "350px",
+                        color: "#d5c67a",
+                        height: "250px",
+                        marginTop: "10%",
+                        borderLeft: "9px solid #ab3428",
+                        marginLeft: "25%",
+                        textAlign: "center",
+                      },
+                    }}>
+                      <h3>Do you really want to delete the specified equipment ?</h3>
+                      <span onClick={() => 
+                    {
+                     del(labitem._id);
+                      toast("equipment deleted successfully", {
+                       position: "bottom-center",
+                       style: {
+                        background: "#ba324f",
+                        color: "white"
+                      },
+                      duration: 4000,
+                      });
+                      setPop(false);
+                      }}>Yes</span> <Toaster /><span onClick={() => setPop(false)}>No</span>
+                    </Model>
                 </td>
+
                 <td>
-                  <button onClick={() => setVisible(true)}>view</button>
+                  <button onClick={() => { 
+                    setVisible(true);
+                    toast("Currently viewing a laboratory equipment details", {
+                      position: "top-right",
+                      style: {
+                      background: "#a6e1fa",
+                      color: "blue"
+                      },
+                      duration: 3000
+                    });}}>view</button>
+                    <Toaster />
 
                   <Model
                     isOpen={visible}
