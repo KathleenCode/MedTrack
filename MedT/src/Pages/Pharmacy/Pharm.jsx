@@ -28,13 +28,8 @@ export default function Pharm({pharmitems}) {
             <IoSearch className='searchIcon'/>
         </div>
 
-<<<<<<< HEAD
       <div className="ptable">
         <table>
-=======
-      <div>
-        <table style={{border: "1px solid black"}}>
->>>>>>> de0659ee3025b6f8a4badfc478de52d1fe9d0ee2
         <thead>
               <tr>
                 <th>Drug Name</th>
