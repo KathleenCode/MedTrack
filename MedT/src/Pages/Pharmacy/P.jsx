@@ -70,6 +70,49 @@ export default function P({ pharmitem }) {
                 <td>{pharmitem.price}</td>
                 <td>{pharmitem.drugCode}</td>
                 <td>{pharmitem.unitOfPricing}</td>
+
+                <td>
+                  <button onClick={() => {
+                    setVisible(true);
+                    toast("Currently viewing drug in pharmacy", {
+                      position: "top-left",
+                      style: {
+                    background: "#a6e1fa",
+                    color: "blue"
+                    },
+                    duration: 2000
+                  });}
+                  }>view</button>
+                  <Toaster />
+
+                  <Model
+                    isOpen={visible}
+                    onRequestClose={() => setVisible(false)}
+                    style={{
+                      overlay: {
+                        background: "#transparent",
+                      },
+                      content: {
+                        backgroundColor: "#597E52",
+                        width: "500px",
+                        height: "400px",
+                        color: "#f5efff",
+                        marginTop: "10%",
+                        marginLeft: "25%",
+                        border: "3px solid #FBF9F1",
+                        textAlign: "center",
+                      },
+                    }}
+                  >
+                    <button style={{padding: ".7rem .9rem", marginBottom: "1rem"}} onClick={() => setVisible(false)}>Go Back</button>
+                    <p style={{marginBottom: "1rem"}}>DrugName:<span style={{color: "#2c0735"}}>{pharmitem.drugName}</span></p>
+                    <p style={{marginBottom: "1rem"}}>Description:<span style={{color: "#2c0735"}}>{pharmitem.description}</span></p>
+                    <p style={{marginBottom: "1rem"}}>Price:<span style={{color: "#2c0735"}}>{pharmitem.price}</span></p>
+                    <p style={{marginBottom: "1rem"}}>DrugCode:<span style={{color: "#2c0735"}}>{pharmitem.drugCode}</span></p>
+                    <p style={{marginBottom: "1rem"}}>UnitOfPricing:<span style={{color: "#2c0735"}}>{pharmitem.unitOfPricing}</span></p>
+                  </Model>
+                </td>
+                
                 <td>
                   <button onClick={() => openModall()}>update</button>
                 </td>
@@ -80,13 +123,13 @@ export default function P({ pharmitem }) {
                   }
                   style={{
                     overlay: {
-                      background: "#5c677d",
+                      background: "transparent",
                     },
                     content: {
-                      width: "400px",
-                      height: "300px",
+                      width: "500px",
+                      height: "400px",
                       marginTop: "10%",
-                      marginLeft: "10%",
+                      marginLeft: "25%",
                     },
                   }}
                 >
@@ -180,13 +223,13 @@ export default function P({ pharmitem }) {
                                  background: "#transparent",
                               },
                               content: {
-                                backgroundColor: "#7e6c6c",
-                                width: "350px",
-                                height: "250px",
+                                backgroundColor: "#65B741",
+                                width: "500px",
+                                height: "400px",
                                 color: "#f5efff",
                                 marginTop: "10%",
                                 marginLeft: "25%",
-                                borderLeft: "9px solid #ffba08",
+                                border: "3px solid #F7EFE5",
                                 textAlign: "center",
                               },
                             }}>
@@ -205,47 +248,6 @@ export default function P({ pharmitem }) {
                       setPop(false);
                       }}>Yes</span><Toaster /><span onClick={() => setPop(false)}>No</span>
                       </Model>
-                </td>
-                <td>
-                  <button onClick={() => {
-                    setVisible(true);
-                    toast("Currently viewing drug in pharmacy", {
-                      position: "top-left",
-                      style: {
-                    background: "#a6e1fa",
-                    color: "blue"
-                    },
-                    duration: 2000
-                  });}
-                  }>view</button>
-                  <Toaster />
-
-                  <Model
-                    isOpen={visible}
-                    onRequestClose={() => setVisible(false)}
-                    style={{
-                      overlay: {
-                        background: "#transparent",
-                      },
-                      content: {
-                        backgroundColor: "#7e6c6c",
-                        width: "350px",
-                        height: "250px",
-                        color: "#f5efff",
-                        marginTop: "10%",
-                        marginLeft: "25%",
-                        borderLeft: "9px solid #ffba08",
-                        textAlign: "center",
-                      },
-                    }}
-                  >
-                    <button style={{padding: ".7rem .9rem", marginBottom: "1rem"}} onClick={() => setVisible(false)}>Go Back</button>
-                    <p style={{marginBottom: "1rem"}}>DrugName:<span style={{color: "#2c0735"}}>{pharmitem.drugName}</span></p>
-                    <p style={{marginBottom: "1rem"}}>Description:<span style={{color: "#2c0735"}}>{pharmitem.description}</span></p>
-                    <p style={{marginBottom: "1rem"}}>Price:<span style={{color: "#2c0735"}}>{pharmitem.price}</span></p>
-                    <p style={{marginBottom: "1rem"}}>DrugCode:<span style={{color: "#2c0735"}}>{pharmitem.drugCode}</span></p>
-                    <p style={{marginBottom: "1rem"}}>UnitOfPricing:<span style={{color: "#2c0735"}}>{pharmitem.unitOfPricing}</span></p>
-                  </Model>
                 </td>
               </tr>
             </tbody>

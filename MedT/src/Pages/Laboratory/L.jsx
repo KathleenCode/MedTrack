@@ -74,6 +74,52 @@ export default function L({labitem}) {
                   <td>{labitem?.subCategory}</td>
                   <td>{labitem?.itemCode}</td>
                   <td>{labitem.price}</td>
+
+                  <td>
+                  <button onClick={() => { 
+                    setVisible(true);
+                    toast("Currently viewing a laboratory equipment details", {
+                      position: "top-right",
+                      style: {
+                      background: "#a6e1fa",
+                      color: "blue"
+                      },
+                      duration: 3000
+                    });}}>view</button>
+                    <Toaster />
+
+                  <Model
+                    isOpen={visible}
+                    onRequestClose={() => setVisible(false)}
+                    style={{
+                      overlay: {
+                        background: "#transparent",
+                      },
+                      content: {
+                        width: "500px",
+                        color: "#d5c67a",
+                        height: "400px",
+                        marginTop: "10%",
+                        borderLeft: "9px solid #ab3428",
+                        marginLeft: "25%",
+                        textAlign: "center",
+                        backgroundColor: "#8CB9BD",
+                        border: "3px solid #F8FAE5",
+                        padding: "2rem",
+                        margin: "1rem",
+                      },
+                    }}
+                  >
+                    <button style={{padding: ".7rem .9rem", marginBottom: "1rem"}} onClick={() => setVisible(false)}>Go Back</button>
+                      <p style={{marginBottom: "1rem"}}>ItemName:<span style={{color: "#a31621"}}>{labitem.itemName}</span></p>
+                      <p style={{marginBottom: "1rem"}}>LabType:<span style={{color: "#a31621"}}>{labitem.labType}</span></p>
+                      <p style={{marginBottom: "1rem"}}>MainCategory:<span style={{color: "#a31621"}}>{labitem.mainCategory}</span></p>
+                      <p style={{marginBottom: "1rem"}}>SubCategory:<span style={{color: "#a31621"}}>{labitem.subCategory}</span></p>
+                      <p style={{marginBottom: "1rem"}}>ItemCode:<span style={{color: "#a31621"}}>{labitem.itemCode}</span></p>
+                      <p style={{marginBottom: "1rem"}}>Price:<span style={{color: "#a31621"}}>{labitem.price}</span></p>
+                  </Model>
+                </td>
+                
                 <td>
                   <button onClick={() => openModall()}>update</button>
                 </td>
@@ -83,13 +129,13 @@ export default function L({labitem}) {
                   onRequestClose={() => openModal()}
                   style={{
                     overlay: {
-                      background: "#5c677d",
+                      background: "transparent",
                     },
                     content: {
-                      width: "400px",
-                      height: "300px",
+                      width: "500px",
+                      height: "400px",
                       marginTop: "10%",
-                      marginLeft: "10%",
+                      marginLeft: "25%",
                     },
                   }}
                 >
@@ -173,14 +219,16 @@ export default function L({labitem}) {
                         background: "#transparent",
                       },
                       content: {
-                        backgroundColor: "#545e75",
-                        width: "350px",
+                        width: "500px",
                         color: "#d5c67a",
-                        height: "250px",
+                        height: "400px",
                         marginTop: "10%",
                         borderLeft: "9px solid #ab3428",
                         marginLeft: "25%",
                         textAlign: "center",
+                        backgroundColor: "#8CB9BD",
+                        border: "3px solid #F8FAE5",
+                        padding: "2rem",
                       },
                     }}>
                       <h3>Do you really want to delete the specified equipment ?</h3>
@@ -198,48 +246,6 @@ export default function L({labitem}) {
                       setPop(false);
                       }}>Yes</span> <Toaster /><span onClick={() => setPop(false)}>No</span>
                     </Model>
-                </td>
-
-                <td>
-                  <button onClick={() => { 
-                    setVisible(true);
-                    toast("Currently viewing a laboratory equipment details", {
-                      position: "top-right",
-                      style: {
-                      background: "#a6e1fa",
-                      color: "blue"
-                      },
-                      duration: 3000
-                    });}}>view</button>
-                    <Toaster />
-
-                  <Model
-                    isOpen={visible}
-                    onRequestClose={() => setVisible(false)}
-                    style={{
-                      overlay: {
-                        background: "#transparent",
-                      },
-                      content: {
-                        backgroundColor: "#545e75",
-                        width: "350px",
-                        color: "#d5c67a",
-                        height: "250px",
-                        marginTop: "10%",
-                        borderLeft: "9px solid #ab3428",
-                        marginLeft: "25%",
-                        textAlign: "center",
-                      },
-                    }}
-                  >
-                    <button style={{padding: ".7rem .9rem", marginBottom: "1rem"}} onClick={() => setVisible(false)}>Go Back</button>
-                      <p style={{marginBottom: "1rem"}}>ItemName:<span style={{color: "#a31621"}}>{labitem.itemName}</span></p>
-                      <p style={{marginBottom: "1rem"}}>LabType:<span style={{color: "#a31621"}}>{labitem.labType}</span></p>
-                      <p style={{marginBottom: "1rem"}}>MainCategory:<span style={{color: "#a31621"}}>{labitem.mainCategory}</span></p>
-                      <p style={{marginBottom: "1rem"}}>SubCategory:<span style={{color: "#a31621"}}>{labitem.subCategory}</span></p>
-                      <p style={{marginBottom: "1rem"}}>ItemCode:<span style={{color: "#a31621"}}>{labitem.itemCode}</span></p>
-                      <p style={{marginBottom: "1rem"}}>Price:<span style={{color: "#a31621"}}>{labitem.price}</span></p>
-                  </Model>
                 </td>
               </tr>
             </tbody>
