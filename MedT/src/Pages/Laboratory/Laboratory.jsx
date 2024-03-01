@@ -6,6 +6,9 @@ import { addLabThunk, fetchLabThunk } from "../../store/features/Laboratory/LabS
 import "./Lab.css";
 import toast, {Toaster} from 'react-hot-toast';
 import Select from "react-select";
+import LaboChart from '../../components/Charts/LaboChart';
+import {Bar, Line, Pie, Doughnut} from "react-chartjs-2";
+import {Chart as ChartJS, defaults} from "chart.js/auto";
 
 export default function Laboratory() {
     const [itemName, setItemName] = useState("");
@@ -28,9 +31,42 @@ export default function Laboratory() {
         {value:  "Others", label: "Others"}
     ]
 
-    const dispatch = useDispatch();
     const labitems = useSelector(state => state.labItems);
     console.log(labitems);
+
+    defaults.maintainAspectRatio = false;
+    defaults.responsive = true;
+
+    defaults.plugins.title.display = true;
+    defaults.plugins.title.align = "start";
+    defaults.plugins.title.font.size = 20;
+    defaults.plugins.title.color = "black";
+
+    const [userData, setUserData] = useState({
+        labels: labitems.labItems.map(data => (data.itemName)),
+        datasets: [
+            {
+            label: "Laboratory types",
+            data: labitems.labItems.map(data => (data.labType)),
+            backgroundColor: ["red", "yellow", "green", "blue", "orange"],
+            borderColor: "black",
+            borderWidth: 2,
+        },
+        {
+            label: "Laboratory item codes",
+            data: labitems.labItems.map(data => (data.itemCode)),
+            backgroundColor: ["red", "yellow", "green", "blue", "orange"],
+            borderColor: "black",
+            borderWidth: 2,
+            barThickness: 1,
+            borderRadius: 4
+        }
+    ]
+    })
+   
+   
+    const dispatch = useDispatch();
+
     const isLoading = useSelector(state => state.loading);
 
     const addOne = (e) => {
@@ -213,7 +249,33 @@ export default function Laboratory() {
                             </tbody>
                         </table>
                     </form>
-                    <div className="chart"></div>
+                    <div className="chart">
+                        <LaboChart chartData={userData}
+                        // options={{ maintainAspectRatio: false }}
+                         options={{
+                            plugins: {
+                              title: {
+                                display: true,
+                                text: "Periodic equipment information",
+                                align: "center",
+                                padding: {
+                                  top: 10,
+                                  bottom: 30,
+                                },
+                              },
+                              legend: {
+                                display: true,
+                                position: "top",
+                              },
+                              scales: {
+                                y: {
+                                  beginAtZero: true,
+                                },
+                              },
+                            },
+                          }}
+                        />
+                    </div>
                 </div>
 
                 {

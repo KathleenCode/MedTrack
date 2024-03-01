@@ -5,6 +5,9 @@ import { useDispatch, useSelector } from "react-redux";
 import { addPharmThunk, fetchPharmThunk } from "../../store/features/Pharmacy/PharmSlice";
 import "./Pharm.css";
 import toast, {Toaster} from 'react-hot-toast';
+import PharChart from '../../components/Charts/PharChart';
+import {Bar, Line, Pie, Doughnut} from "react-chartjs-2";
+import {Chart as ChartJS, defaults} from "chart.js/auto";
 
 export default function Pharmacy() {
     const [drugName, setDrugName] = useState("");
@@ -13,9 +16,41 @@ export default function Pharmacy() {
     const [drugCode, setCode] = useState("");
     const [price, setPrice] = useState(0);
 
-    const dispatch = useDispatch();
     const pharmitems = useSelector(state => state.pharmItems);
     console.log(pharmitems);
+    
+    // defaults.maintainAspectRatio = false;
+    defaults.responsive = true;
+
+    defaults.plugins.title.display = true;
+    defaults.plugins.title.align = "start";
+    defaults.plugins.title.font.size = 20;
+    defaults.plugins.title.color = "black";
+
+    const [userData, setUserData] = useState({
+        labels: pharmitems.pharmItems.map(drug => (drug.drugName)),
+        datasets: [
+            {
+            label: "Unit of pricing",
+            data: pharmitems.pharmItems.map(data => (data.unitOfPricing)),
+            backgroundColor: ["red", "yellow", "green", "blue", "orange"],
+            borderColor: "black",
+            borderWidth: 2,
+        },
+        {
+            label: "Drug Code",
+            data: pharmitems.pharmItems.map(data => (data.drugCode)),
+            backgroundColor: ["red", "yellow", "green", "blue", "orange"],
+            borderColor: "black",
+            borderWidth: 2,
+            barThickness: 2,
+            borderRadius: 5
+        }
+    ]
+    })
+
+    const dispatch = useDispatch();
+
     const isLoading = useSelector(state => state.loading);
 
     const add = (e) => {
@@ -143,7 +178,35 @@ export default function Pharmacy() {
                             </tbody>
                         </table>
                     </form>
-                    <div className="chart"></div>
+                    <div className="chart" style={{width: "5vw", height:"60vh",position:"relative", marginBottom:"1%", padding:"1%"}}>
+                        <PharChart chartData={userData} 
+                        // height="100px"
+                        // width="10px" 
+                        options={{
+                            maintainAspectRatio: false,
+                            plugins: {
+                              title: {
+                                display: true,
+                                text: "Periodic drug information",
+                                align: "center",
+                                padding: {
+                                  top: 10,
+                                  bottom: 30,
+                                },
+                              },
+                              legend: {
+                                display: true,
+                                position: "top",
+                              },
+                              scales: {
+                                y: {
+                                  beginAtZero: true,
+                                },
+                              },
+                            },
+                          }}
+                        />
+                    </div>
                 </div>
 
                 {
