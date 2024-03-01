@@ -17,7 +17,7 @@ export default function P({ pharmitem }) {
   const [unitOfPricing, setPricing] = useState("");
   const [drugCode, setCode] = useState("");
   const [price, setPrice] = useState(0);
-  // const [pop, setPop] = useState(false);
+  const [pop, setPop] = useState(false);
   const [visible, setVisible] = useState(false);
   const [updateModal, setUpdateModal] = useState(false);
 
@@ -70,85 +70,156 @@ export default function P({ pharmitem }) {
                 <td>{pharmitem.price}</td>
                 <td>{pharmitem.drugCode}</td>
                 <td>{pharmitem.unitOfPricing}</td>
+
                 <td>
-                  <button onClick={() => openModall()}>update</button>
+                  <button onClick={() => {
+                    setVisible(true);
+                    toast("Currently viewing drug in pharmacy", {
+                      position: "top-left",
+                      style: {
+                    background: "#a6e1fa",
+                    color: "blue"
+                    },
+                    duration: 2000
+                  });}
+                  }>view</button>
+                  <Toaster />
+
+                  <Model
+                    isOpen={visible}
+                    onRequestClose={() => setVisible(false)}
+                    style={{
+                      overlay: {
+                        background: "#transparent",
+                      },
+                      content: {
+                        backgroundColor: "#cae5ff",
+                        width: "500px",
+                        height: "400px",
+                        color: "#020887",
+                        marginTop: "5%",
+                        marginLeft: "27%",
+                        borderLeft: "9px solid #597E52",
+                        textAlign: "center",
+                      },
+                    }}
+                  >
+                    <button style={{padding: ".7rem .9rem", marginBottom: "1rem", cursor: "pointer"}} onClick={() => setVisible(false)}>Go Back</button>
+                    <p style={{margin: "1rem"}}>DrugName:<span style={{color: "#2c0735", padding: "1rem"}}>{pharmitem.drugName}</span></p>
+                    <p style={{margin: "1rem"}}>Description:<span style={{color: "#2c0735", padding: "1rem"}}>{pharmitem.description}</span></p>
+                    <p style={{margin: "1rem"}}>Price:<span style={{color: "#2c0735", padding: "1rem"}}>{pharmitem.price}</span></p>
+                    <p style={{margin: "1rem"}}>DrugCode:<span style={{color: "#2c0735", padding: "1rem"}}>{pharmitem.drugCode}</span></p>
+                    <p style={{margin: "1rem"}}>UnitOfPricing:<span style={{color: "#2c0735", padding: "1rem"}}>{pharmitem.unitOfPricing}</span></p>
+                  </Model>
+                </td>
+                
+                <td>
+                  <button onClick={() => openModall() }>update</button>
                 </td>
 
                 <Model
                   isOpen={updateModal}
-                  onRequestClose={() => openModal()}
+                  onRequestClose={() => openModal()
+                  }
                   style={{
                     overlay: {
-                      background: "#5c677d",
+                      background: "transparent",
+                      backdropFilter: "blur(3px)"
                     },
                     content: {
-                      width: "400px",
-                      height: "300px",
-                      marginTop: "10%",
-                      marginLeft: "10%",
+                      width: "500px",
+                      height: "500px",
+                      marginLeft: "29%",
+                      color: "#480355",
+                      textAlign: "center",
+                      borderRadius: "15px",
+                      padding: "2rem",
+                      border: "5px solid #bed8d4"
                     },
                   }}
                 >
-                  <button onClick={() => setUpdateModal(false)}>Go Back</button>
-                  <div>
-                    <label htmlFor="drugName">Drug Name</label>
-                    <input
-                      type="text"
-                      placeholder="Type drug name here"
-                      id="drugName"
-                      name="drugName"
-                      value={drugName}
-                      onChange={(e) => setDrugName(e.target.value)}
-                    />{" "}
+                  <button onClick={() => setUpdateModal(false) } style={{padding: ".5rem 1rem", backgroundColor: "#f2f4ff", cursor: "pointer", borderRadius: "3px"}} >Go Back</button>
+                  <div className="modalTablep">
+                        <Toaster />
+                        <table>
+                            <tbody>
+                                <tr>
+                                    <td>
+                                        <label htmlFor="drugName">Drug Name</label>
+                                    </td>
+                                    <td>
+                                        <input 
+                                        type="text" placeholder="Type drug name here" id="drugName" name="drugName"
+                                        value={drugName} onChange={(e) => setDrugName(e.target.value)} 
+                                        /> 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label htmlFor="description">Description</label>
+                                    </td>
+                                    <td>
+                                        <textarea placeholder="Describe drug here" id="description" name="description"
+                                        value={description} onChange={(e) => setDescription(e.target.value)} 
+                                        >e</textarea> 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label htmlFor="pricing">Unit of Pricing</label>
+                                    </td>
+                                    <td>
+                                        <input 
+                                        type="text" placeholder="Tablet" id="pricing" name="pricing"
+                                        value={unitOfPricing} onChange={(e) => setPricing(e.target.value)}
+                                        /> 
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label htmlFor="code">Drug Code</label>
+                                    </td>
+                                    <td>
+                                        <input
+                                        type="text" placeholder="Aoc123FH" id="code" name="code"
+                                        value={drugCode} onChange={(e) => setCode(e.target.value)} 
+                                        />
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <label htmlFor="price">Price</label>
+                                    </td>
+                                    <td>
+                                        <input 
+                                        type="number" placeholder="2.02" id="price" name="price"
+                                        value={price} onChange={(e) => setPrice(e.target.value)} 
+                                        /> 
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     <br />
-                    <label htmlFor="description">Description</label>
-                    <input
-                      type="text"
-                      placeholder="describe drug"
-                      id="description"
-                      name="description"
-                      value={description}
-                      onChange={(e) => setDescription(e.target.value)}
-                    />{" "}
-                    <br />
-                    <label htmlFor="pricing">Unit of Pricing</label>
-                    <input
-                      type="text"
-                      placeholder="Tablet"
-                      id="pricing"
-                      name="pricing"
-                      value={unitOfPricing}
-                      onChange={(e) => setPricing(e.target.value)}
-                    />{" "}
-                    <br />
-                    <label htmlFor="code">Drug Code</label>
-                    <input
-                      type="text"
-                      placeholder="Aoc123FH"
-                      id="code"
-                      name="code"
-                      value={drugCode}
-                      onChange={(e) => setCode(e.target.value)}
-                    />{" "}
-                    <br />
-                    <label htmlFor="price">Price</label>
-                    <input
-                      type="number"
-                      placeholder="2.02"
-                      id="price"
-                      name="price"
-                      value={price}
-                      onChange={(e) => setPrice(e.target.value)}
-                    />{" "}
-                    <br />
-                    <button onClick={() => updateOne(pharmitem._id)}>
+                    <button style={{padding: ".5rem 1rem", backgroundColor: "#f2f4ff", cursor: "pointer", border: "2px solid #0072bb", borderRadius: "3px"}}
+                    onClick={() => { updateOne(pharmitem._id);
+                    toast("Drug information updated successfully", {
+                      position: "top-center",
+                      style: {
+                      background: "#a6e1fa",
+                      color: "blue"
+                    },
+                    duration: 3000
+                  });
+                  setUpdateModal(false);
+                }}>
                       update item
                     </button>
+                    <Toaster />
                   </div>
                 </Model>
 
                 <td>
-                  <button onClick={() => 
+                  {/* <button onClick={() => 
                     {
                       dele(pharmitem._id); 
                       toast("Medicine deleted successfully", {
@@ -159,37 +230,40 @@ export default function P({ pharmitem }) {
                         },
                         duration: 4000
                       });}}>delete</button>
-                      <Toaster />
-                </td>
-                <td>
-                  <button onClick={() => setVisible(true)}>view</button>
-
-                  <Model
-                    isOpen={visible}
-                    onRequestClose={() => setVisible(false)}
-                    style={{
-                      overlay: {
-                        background: "#transparent",
-                      },
-                      content: {
-                        backgroundColor: "#7e6c6c",
-                        width: "350px",
-                        height: "250px",
-                        color: "#f5efff",
-                        marginTop: "10%",
-                        marginLeft: "25%",
-                        borderLeft: "9px solid #ffba08",
-                        textAlign: "center",
-                      },
-                    }}
-                  >
-                    <button style={{padding: ".7rem .9rem", marginBottom: "1rem"}} onClick={() => setVisible(false)}>Go Back</button>
-                    <p style={{marginBottom: "1rem"}}>DrugName:<span style={{color: "#2c0735"}}>{pharmitem.drugName}</span></p>
-                    <p style={{marginBottom: "1rem"}}>Description:<span style={{color: "#2c0735"}}>{pharmitem.description}</span></p>
-                    <p style={{marginBottom: "1rem"}}>Price:<span style={{color: "#2c0735"}}>{pharmitem.price}</span></p>
-                    <p style={{marginBottom: "1rem"}}>DrugCode:<span style={{color: "#2c0735"}}>{pharmitem.drugCode}</span></p>
-                    <p style={{marginBottom: "1rem"}}>UnitOfPricing:<span style={{color: "#2c0735"}}>{pharmitem.unitOfPricing}</span></p>
-                  </Model>
+                      <Toaster /> */}
+                      <button onClick={() => setPop(true)} >delete</button>
+                      <Model isOpen={pop}
+                           onRequestClose={() => setPop(false)}
+                          style={{
+                                overlay: {
+                                 background: "#transparent",
+                              },
+                              content: {
+                                backgroundColor: "#a9d6e5",
+                                width: "350px",
+                                height: "200px",
+                                color: "#c1121f",
+                                marginLeft: "35%",
+                                border: "9px solid #F7EFE5",
+                                textAlign: "center",
+                                padding: "2rem",
+                              },
+                            }}>
+                        <h3 style={{marginBottom: "1rem" }}>Are you certain that this medicine should be deleted?</h3>
+                        <button style={{margin: ".5rem", padding: ".5rem .9rem", cursor: "pointer"}} onClick={() => 
+                                 {
+                             dele(pharmitem._id); 
+                             toast("Medicine deleted successfully", {
+                               position: "bottom-left",
+                               style: {
+                               background: "#a6e1fa",
+                               color: "blue"
+                        },
+                        duration: 4000
+                      });
+                      setPop(false);
+                      }}>Yes</button><Toaster /><button style={{margin: ".5rem", padding: ".5rem .9rem", cursor: "pointer"}} onClick={() => setPop(false)}>No</button>
+                      </Model>
                 </td>
               </tr>
             </tbody>
