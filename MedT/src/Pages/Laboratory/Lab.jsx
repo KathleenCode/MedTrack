@@ -29,14 +29,13 @@ export default function Lab({labitems}) {
         <table>
           <thead>
                 <tr>
-                  <th>Item Name</th>
-                  <th>Lab Type</th>
-                  <th>Main Category</th>
-                  <th>Sub Category</th>
-                  <th>Code</th>
-                  <th>Price</th>
-                  <th>Action</th>
-                  <th>Action</th>
+                  <th style={{width: "13%"}} >Item Name</th>
+                  <th style={{width: "13%"}} >Lab Type</th>
+                  <th style={{width: "13.9%"}} >Main Category</th>
+                  <th style={{width: "12.5%"}} >Sub Category</th>
+                  <th style={{width: "13.6%"}} >Code</th>
+                  <th style={{width: "12.2%"}} >Price</th>
+                  <th>Actions</th>
                 </tr>
               </thead>
         </table>

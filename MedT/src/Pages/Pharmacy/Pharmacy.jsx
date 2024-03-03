@@ -32,7 +32,7 @@ export default function Pharmacy() {
         datasets: [
             {
             label: "Unit of pricing",
-            data: pharmitems.pharmItems.map(data => (data.unitOfPricing)),
+            data: Array(pharmitems.pharmItems).map(data => (data.unitOfPricing)),
             backgroundColor: ["red", "yellow", "green", "blue", "orange"],
             borderColor: "black",
             borderWidth: 2,
@@ -178,7 +178,7 @@ export default function Pharmacy() {
                             </tbody>
                         </table>
                     </form>
-                    <div className="chart" style={{width: "5vw", height:"60vh",position:"relative", marginBottom:"1%", padding:"1%"}}>
+                    {/* <div className="chart" style={{width: "5vw", height:"60vh",position:"relative", marginBottom:"1%", padding:"1%"}}>
                         <PharChart chartData={userData} 
                         // height="100px"
                         // width="10px" 
@@ -206,7 +206,7 @@ export default function Pharmacy() {
                             },
                           }}
                         />
-                    </div>
+                    </div> */}
                 </div>
 
                 {

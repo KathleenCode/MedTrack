@@ -47,14 +47,14 @@ export default function Laboratory() {
         datasets: [
             {
             label: "Laboratory types",
-            data: labitems.labItems.map(data => (data.labType)),
+            data: labitems.labItems.map(info => (info.labType)),
             backgroundColor: ["red", "yellow", "green", "blue", "orange"],
             borderColor: "black",
             borderWidth: 2,
         },
         {
             label: "Laboratory item codes",
-            data: labitems.labItems.map(data => (data.itemCode)),
+            data: labitems.labItems.map(info => (info.itemCode)),
             backgroundColor: ["red", "yellow", "green", "blue", "orange"],
             borderColor: "black",
             borderWidth: 2,
@@ -164,6 +164,8 @@ export default function Laboratory() {
                                                 border: "none",
                                                 borderBottom: "1px solid #05668d",
                                                 backgroundColor: "#ccd5ff",
+                                                width: "10rem",
+                                                fontSize: "13px"
                                             })
                                         }}
                                         />
@@ -199,7 +201,9 @@ export default function Laboratory() {
                                                 ...baseStyles,
                                                 border: "none",
                                                 borderBottom: "1px solid #05668d",
-                                                backgroundColor: "#ccd5ff"
+                                                backgroundColor: "#ccd5ff",
+                                                width: "10rem",
+                                                fontSize: "13px"
                                             })
                                         }}
                                         />
@@ -249,7 +253,7 @@ export default function Laboratory() {
                             </tbody>
                         </table>
                     </form>
-                    <div className="chart">
+                    {/* <div className="chart">
                         <LaboChart chartData={userData}
                         // options={{ maintainAspectRatio: false }}
                          options={{
@@ -275,7 +279,7 @@ export default function Laboratory() {
                             },
                           }}
                         />
-                    </div>
+                    </div> */}
                 </div>
 
                 {

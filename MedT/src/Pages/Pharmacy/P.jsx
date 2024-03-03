@@ -65,14 +65,14 @@ export default function P({ pharmitem }) {
           {
             <tbody className="ptablee">
               <tr>
-                <td>{pharmitem.drugName}</td>
-                <td>{pharmitem.description}</td>
-                <td>{pharmitem.price}</td>
-                <td>{pharmitem.drugCode}</td>
-                <td>{pharmitem.unitOfPricing}</td>
+                <td style={{width: "190px"}}>{pharmitem.drugName}</td>
+                <td style={{width: "300px"}}>{pharmitem.description}</td>
+                <td style={{width: "100px"}}>{pharmitem.price}</td>
+                <td style={{width: "150px"}}>{pharmitem.drugCode}</td>
+                <td style={{width: "100px"}}>{pharmitem.unitOfPricing}</td>
 
-                <td>
-                  <button onClick={() => {
+                <td style={{width: "50px"}}>
+                  <button className="view" onClick={() => {
                     setVisible(true);
                     toast("Currently viewing drug in pharmacy", {
                       position: "top-left",
@@ -113,8 +113,8 @@ export default function P({ pharmitem }) {
                   </Model>
                 </td>
                 
-                <td>
-                  <button onClick={() => openModall() }>update</button>
+                <td style={{width: "50px"}}>
+                  <button className="update" onClick={() => openModall() }>update</button>
                 </td>
 
                 <Model
@@ -218,20 +218,8 @@ export default function P({ pharmitem }) {
                   </div>
                 </Model>
 
-                <td>
-                  {/* <button onClick={() => 
-                    {
-                      dele(pharmitem._id); 
-                      toast("Medicine deleted successfully", {
-                        position: "top-center",
-                        style: {
-                          background: "#a6e1fa",
-                          color: "blue"
-                        },
-                        duration: 4000
-                      });}}>delete</button>
-                      <Toaster /> */}
-                      <button onClick={() => setPop(true)} >delete</button>
+                <td style={{width: "50px"}}>
+                      <button className="delete" onClick={() => setPop(true)} >delete</button>
                       <Model isOpen={pop}
                            onRequestClose={() => setPop(false)}
                           style={{

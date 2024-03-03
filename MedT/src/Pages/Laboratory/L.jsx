@@ -9,6 +9,9 @@ import Model from "react-modal";
 import toast, {Toaster} from "react-hot-toast";
 import Select from "react-select";
 
+
+
+
 export default function L({labitem}) {
   const dispatch = useDispatch();
 
@@ -77,20 +80,20 @@ const options2 = [
 
   return (
     <>
-      <div className="ltablee">
+      <div>
         <table style={{ border: "1px solid black" }}>
           {
-            <tbody>
+            <tbody className="ltablee">
               <tr>
-                  <td>{labitem?.itemName}</td>
+                  <td >{labitem?.itemName}</td>
                   <td>{labitem?.labType}</td>
                   <td>{labitem?.mainCategory}</td>
-                  <td>{labitem?.subCategory}</td>
-                  <td>{labitem?.itemCode}</td>
+                  <td >{labitem?.subCategory}</td>
+                  <td >{labitem?.itemCode}</td>
                   <td>{labitem.price}</td>
 
                   <td>
-                  <button onClick={() => { 
+                  <button className="view" onClick={() => { 
                     setVisible(true);
                     toast("Currently viewing a laboratory equipment details", {
                       position: "top-right",
@@ -133,7 +136,7 @@ const options2 = [
                 </td>
                 
                 <td>
-                  <button onClick={() => openModall()}>update</button>
+                  <button className="update" onClick={() => openModall()}>update</button>
                 </td>
 
                 <Model
@@ -313,7 +316,7 @@ const options2 = [
                       duration: 4000,
                     });}}>delete</button>
                     <Toaster /> */}
-                    <button onClick={() => setPop(true)} >delete</button>
+                    <button className="delete" onClick={() => setPop(true)} >delete</button>
                     <Model  isOpen={pop}
                     onRequestClose={() => setPop(false)}  style={{
                       overlay: {
