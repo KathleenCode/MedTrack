@@ -32,13 +32,12 @@ export default function Pharm({pharmitems}) {
         <table>
         <thead>
               <tr>
-                <th>Drug Name</th>
-                <th>Description</th>
-                <th>Pricing</th>
-                <th>Code</th>
-                <th>Price</th>
-                <th>Action</th>
-                <th>Action</th>
+                <th style={{width: "18.6%"}}>Drug Name</th>
+                <th style={{width: "29.3%"}}>Description</th>
+                <th style={{width: "9.7%"}}>Pricing</th>
+                <th style={{width: "14.7%"}}>Code</th>
+                <th style={{width: "9.7%"}}>Price</th>
+                <th style={{width: ""}}>Actions</th>
               </tr>
             </thead>
         </table>

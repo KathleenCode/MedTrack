@@ -10,7 +10,7 @@
 
 .ph {
     border-radius: 4px;
-    padding: 2.5rem;
+    padding: 1rem;
     background-color: #A9D3FF;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg fill-opacity='0.99'%3E%3Cpolygon fill='%23b6d7f9' points='800 100 0 200 0 800 1600 800 1600 200'/%3E%3Cpolygon fill='%23c2dbf5' points='800 200 0 400 0 800 1600 800 1600 400'/%3E%3Cpolygon fill='%23cddff1' points='800 300 0 600 0 800 1600 800 1600 600'/%3E%3Cpolygon fill='%23d7e3ef' points='1600 800 800 400 0 800'/%3E%3Cpolygon fill='%23e0e6ee' points='1280 800 800 500 320 800'/%3E%3Cpolygon fill='%23e7eaed' points='533.3 800 1066.7 800 800 600'/%3E%3Cpolygon fill='%23EEE' points='684.1 800 914.3 800 800 700'/%3E%3C/g%3E%3C/svg%3E");
     background-attachment: fixed;
@@ -33,25 +33,30 @@
 .grup form label {
     color: #001242;
     font-weight: bold;
+    font-size: 15.3px;
+    box-shadow: inset 1px 1px 5px lightblue;
+    padding: .3rem;
 }
 
 .grup form input, textarea {
     color: #310652;
     background-color: #ccd5ff;
-    border-bottom: 1px solid #290a36;
+    border-bottom: 1px solid #a9d6e5;
     border-radius: 5px;
     padding: .5rem;
+    box-shadow: inset 2px 2px 3px #bedffe;
     border-top:  none;
     border-left: none;
     border-right: none;
+    font-size: 13px;
+    width: 10rem;
 }
 
 .grup form input::placeholder {
   color: #183446;
 }
 
-.grup form label, input, textarea {
-  border-bottom: 1px solid #05668d;
+.grup form input, textarea {
   padding: .5rem;
   background-color: #ebf2fa;
 }
@@ -59,11 +64,11 @@
 .grup button {
     color: #ccdbdc;
     background-color: #386fa4;
-    border: 3.7px solid #481f7d;
-    border-radius: 7px;
-    padding: .7rem 1.5rem;
+    border: 2px solid #481f7d;
+    border-radius: 5px;
+    padding: .55rem 1.3rem;
     font-weight: bold;
-    margin: .7rem;
+    margin: .4rem;
     cursor: pointer;
 }
 
@@ -77,55 +82,10 @@
   width: 40vw;
 } */
 
-
-.ptable table {
-    border-collapse: collapse;
-    width: 90%;
-  }
-  .ptable th {
-    border: 1px solid #979dac;
-    text-align: center;
-    padding: 6px;
-    padding-left: 6px;
-    font-size: .8rem;
-    background-color: #012a4a;
-    color: #bbd0ff;
-  }
-
-
-.ptablee table {
-    border-collapse: collapse;
-    width: 90%;
-  }
-
-  .ptablee td {
-    border: 1px solid #caf0f8;
-    text-align: center;
-    padding: 6px;
-    padding-left: 6px;
-    font-size: .8rem;
-  }
-  .ptablee th {
-    background-color: #00b4d8;
-    color: #caf0f8;
-  }
-  .ptablee td {
-    background-color: #5c677d;
-  }
-  .ptablee td:hover {
-    background-color: #a3bac3;
-  } */
-
-  /* .ptablee td:last-child {
-    display: flex;
-    justify-content: space-evenly;
-  } */
-  
-
-
   .search {
     position: relative;
     display: inline-block;
+    margin: .5rem;
   }
 
 .search .searchBox {
@@ -162,23 +122,73 @@
     background-size: cover;
   }
   
-/* 
-  .modalTablep label {
-    color: #031d44;
-    background-color: #cfdee7;
-    margin-right: .5rem;
+ 
+  .ptable table,
+  .ptablee {
+    width: 100%;
+    border-spacing: 0;
+    border-collapse: collapse;
+    border: 1px solid #ebebeb;
+    tr {
+      :last-child {
+        td {
+          border-bottom: 0;
+        }
+      }
+    }
+    th,
+    td {
+      margin: 0;
+      padding: .5rem;
+      border-bottom: 1px solid #ebebeb;
+      border-right: 1px solid #ebebeb;
+      :last-child {
+        border-right: 0;
+      }
+    }
+    th {
+      padding: .7rem;
+      text-align: center;
+      background-color: #6f73d2;
+      color: #dbfbec;
+    }
+    td {
+      text-align: center;
+      background-color: #d7e3fc;
+    }
+    td:hover {
+      background-color: #7692ff;
+    }
   }
 
-  .modalTablep input {
-    border: 1px solid #7fefbd;
-    background-color: #bbdefb;
-    color: #001021;
-  }
-
-  .modalTablep button {
-    background-color: #e5d9f2;
-    padding: .3rem .5rem;
-    border-radius: 2px;
-    margin-top: 1rem;
+  .view {
+    background-color: #a3d5ff;
+    padding: .3rem;
     cursor: pointer;
-  } */
+    border: 1px solid #001242;
+    border-radius: 7px;
+  }
+
+  .update {
+    background-color: #a3d5ff;
+    padding: .3rem;
+    cursor: pointer;
+    border: 1px solid #001242;
+    border-radius: 7px;
+  }
+
+  .delete {
+    background-color: #a3d5ff;
+    padding: .3rem;
+    cursor: pointer;
+    border: 1px solid #001242;
+    border-radius: 7px;
+  }
+
+  .view:hover,
+  .update:hover,
+  .delete:hover {
+    background-color: #473bf0;
+    color: #e2eafc;
+    font-weight: bold;
+  }
