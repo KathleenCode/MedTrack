@@ -1,6 +1,7 @@
 import Lab from "../model/labModel.js";
-import asyncHandler from "express-async-handler"
-import mongoose from "mongoose"
+import asyncHandler from "express-async-handler";
+import mongoose from "mongoose";
+
 
 export const addLabItem = asyncHandler(async (req, res) => {
     const { itemName, labType, mainCategory, subCategory, itemCode, price } = req.body;
@@ -14,7 +15,11 @@ export const addLabItem = asyncHandler(async (req, res) => {
     }
 
     const newLabItem = await Lab.create({
-        itemName, labType, mainCategory, subCategory, itemCode, price
+        itemName,
+        mainCategory,
+        subCategory,
+        itemCode,
+        price
     })
 
     if (newLabItem) {
@@ -62,22 +67,8 @@ export const updateLabItem = asyncHandler(async (req, res) => {
     const { id } = req.params;
     const { itemName, labType, mainCategory, subCategory, itemCode, price } = req.body;
 
-    if (!mongoose.Types.ObjectId.isValid(id)) {
-        res.status(400).json({ error: 'Invalid item ID'})
-    }
-
-    if (!itemName || !itemCode) {
-        res.status(400).json({ error: 'this field is required' })
-    }
-
-    if (price <= 0) {
-        res.status(400).json({ error: 'item price must be greater than 0' })
-    }
-
-
-    //const updatedItems = { itemName, labType, mainCategory, subCategory, itemCode, price }
-    const updatedItems = req.body;
-    const editedItem = await Lab.findOneAndUpdate(
+    const updatedItems = { labItemName, mainCategory, subCategory, labItemCode, price }
+    const editedItem = await Lab.updateOne(
         {_id: id},
         updatedItems,
         {new: true}
@@ -95,6 +86,10 @@ export const updateLabItem = asyncHandler(async (req, res) => {
 
 export const singleItem = asyncHandler(async (req, res) => {
     const { id } = req.params;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        res.status(400).json({ error: 'Invalid item ID'})
+    }
 
     const item = await Lab.findById(id)
 
