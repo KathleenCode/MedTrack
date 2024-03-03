@@ -3,8 +3,8 @@ import RootLayout from './Pages/RootLayout'
 import './App.css'
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Home from './Pages/Home'
-import Pharmacy from './Pages/Pharmacy'
-import Laboratory from './Pages/Laboratory'
+import Pharmacy from './Pages/Pharmact/Pharmacy'
+import Laboratory from './Pages/Laboratory/Laboratory'
 
 
 const router = createBrowserRouter([

@@ -1,12 +1,22 @@
 import Lab from "../model/labModel.js";
-import asyncHandler from "express-async-handler"
+import asyncHandler from "express-async-handler";
+import mongoose from "mongoose";
 
 
 export const addLabItem = asyncHandler(async (req, res) => {
-    const { labItemName, mainCategory, subCategory, labItemCode, price } = req.body;
+    const { itemName, labType, mainCategory, subCategory, itemCode, price } = req.body;
+
+    if (!itemName) {
+        res.status(400).json({ error: 'item name is required' })
+    }
+
+    if (!itemCode) {
+        res.status(400).json({ error: 'item code is required' })
+    }
 
     const newLabItem = await Lab.create({
-        itemtemName,
+        itemName,
+        labType,
         mainCategory,
         subCategory,
         itemCode,
@@ -39,25 +49,42 @@ export const allLabItems = asyncHandler(async (req, res) => {
 export const removeLabItem = asyncHandler(async (req, res) => {
     const { id } = req.params;
 
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        res.status(400).json({ error: 'Invalid ID' });
+    }
+
     const removedItem = await Lab.findByIdAndDelete(id)
     if (removedItem) {
         res.status(200).send(removedItem)
 
     } else {
         res.status(400)
-        throw new Error('item could not be removed')
+        throw new Error(`item with id ${id} does not exist`)
     }
 })
 
 
 export const updateLabItem = asyncHandler(async (req, res) => {
     const { id } = req.params;
-    const { labItemName, mainCategory, subCategory, labItemCode, price } = req.body;
+    const { itemName, labType, mainCategory, subCategory, itemCode, price } = req.body;
 
-    const updatedItems = { labItemName, mainCategory, subCategory, labItemCode, price }
-    const editedItem = await Lab.updateOne(
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        res.status(400).json({ error: 'Invalid item ID'})
+    }
+
+    if (!itemName || !itemCode) {
+        res.status(400).json({ error: 'this field is required' })
+    }
+
+    if (price <= 0) {
+        res.status(400).json({ error: 'item price must be greater than 0' })
+    }
+
+    const updatedItems = req.body;
+    const editedItem = await Lab.findOneAndUpdate(
         {_id: id},
         updatedItems,
+        {new: true}
     );
     
     if (editedItem) {
@@ -72,6 +99,10 @@ export const updateLabItem = asyncHandler(async (req, res) => {
 
 export const singleItem = asyncHandler(async (req, res) => {
     const { id } = req.params;
+
+    if (!mongoose.Types.ObjectId.isValid(id)) {
+        res.status(400).json({ error: 'Invalid item ID'})
+    }
 
     const item = await Lab.findById(id)
 

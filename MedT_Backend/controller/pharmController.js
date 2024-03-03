@@ -79,9 +79,10 @@ export const updateMedicine = asyncHandler(async (req, res) => {
 
 
     const updateMed = req.body;
-    const editedMedicine = await Pharm.updateOne(
+    const editedMedicine = await Pharm.findByIdAndUpdate(
         { _id: id },
-        updateMed
+        updateMed,
+        {new: true}
     );
 
     if (editedMedicine) {

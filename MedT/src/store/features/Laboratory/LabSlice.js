@@ -6,37 +6,40 @@ const initialState = {
     error: null,
 }
 
-export const addLabThunk = createAsyncThunk("litems/addLab", async(litem) => {
+export const addLabThunk = createAsyncThunk("labItems/addLab", async(newLabItem) => {
     try {
-        const response = await fetch("http://localhost:9000/api/labitems", {
+        const response = await fetch("http://localhost:9000/api/equipment", {
             method: "POST",
-            body: JSON.stringify(litem),
+            body: JSON.stringify(newLabItem),
             headers: {
                 "Content-Type": "application/json"
             }
         })
         const data = await response.json();
+        console.log("adlabitem", data)
         return data;
     } catch(error) {
         console.log(error)
     }
 })
 
-export const fetchLabThunk = createAsyncThunk("litems/fetchLab", async(litems) => {
+export const fetchLabThunk = createAsyncThunk("labItems/fetchLab", async() => {
     try {
-        const response = await fetch("http://localhost:9000/api/labitems");
-        const data = await response.json(litems);
+        const response = await fetch("http://localhost:9000/api/equipment");
+        const data = await response.json();
+        console.log("labslice", data)
         return data;
     } catch(error) {
         console.log(error)
     }
 })
 
-export const updateLabThunk = createAsyncThunk("litems/updateLab", async(_id) => {
+export const updateLabThunk = createAsyncThunk("labItems/updateLab", async(equipment) => {
+    console.log("equipment", equipment);
     try {
-        const response = await fetch(`http://localhost:9000/api/labitems/${_id}`, {
+        const response = await fetch(`http://localhost:9000/api/equipment/${equipment.id}`, {
             method: "PUT",
-            body: JSON.stringify(),
+            body: JSON.stringify(equipment),
             headers: {
                 "Content-Type": "application/json"
             }
@@ -48,9 +51,9 @@ export const updateLabThunk = createAsyncThunk("litems/updateLab", async(_id) =>
     }
 })
 
-export const removeLabThunk = createAsyncThunk("litems/removeLab", async(_id) => {
+export const removeLabThunk = createAsyncThunk("labItems/removeLab", async(_id) => {
     try {
-        const response = await fetch(`http://localhost:9000/api/labitems/${_id}`, {
+        const response = await fetch(`http://localhost:9000/api/equipment/${_id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json"
@@ -65,14 +68,17 @@ export const removeLabThunk = createAsyncThunk("litems/removeLab", async(_id) =>
 
 
 const labSlice = createSlice({
-    name: "labitems",
+    name: "labItems",
     initialState,
     reducers: {
         addLab: (state, action) => {
             state.labItems.push(action.payload)
         },
 
-        fetchLab,
+        fetchLab: (state, action) => {
+            state.labItems = action.payload;
+
+        },
 
         updateLab: (state, action) => {
             state.labItems = state.labItems.map(item => item.id === action.payload? {...item, workedOn: !item.workedOn}: item)
@@ -99,6 +105,7 @@ const labSlice = createSlice({
             state.loading =true;
         })
         .addCase(fetchLabThunk.fulfilled, (state, action) => {
+            console.log("fetch", action);
             state.loading = false;
             state.labItems = action.payload;
         })
@@ -112,7 +119,7 @@ const labSlice = createSlice({
         })
         .addCase(updateLabThunk.fulfilled, (state, action) => {
             state.loading = false;
-            state.labItems = state.labItems.map(item => item._id === action.payload._id? action.payload : t);
+            state.labItems = state.labItems.map(item => item._id === action.payload._id? action.payload : item);
         })
         .addCase(updateLabThunk.rejected, (state, action) => {
             state.loading = false;

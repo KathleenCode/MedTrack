@@ -5,10 +5,14 @@ const labSchema = new Schema ({
         type: String,
         required: true
     },
-    mainCategory: {
+    labType: {
         type: String,
         required: true,
-        enum: ['radiology', 'laboratory']
+        //enum: ['Radiology', 'Laboratory']
+    },
+    mainCategory: {
+        type: String,
+        //required: true, 
     },
     subCategory: {
         type: String,
