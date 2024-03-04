@@ -11,7 +11,7 @@ export default function Pharm({pharmitems}) {
     return pharmitems.pharmItems.filter(med => {
       return Object.values(med).join('').toLowerCase().includes(search.toLowerCase())
     })
-  }, [search, pharmitems])
+  }, [search, pharmitems]);
 
   console.log("pharm",pharmitems);
 

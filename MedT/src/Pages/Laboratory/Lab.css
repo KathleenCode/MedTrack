@@ -134,10 +134,12 @@
   text-align: center;
   border: 1px solid #ddd;
   padding: 5px;
+  font-size: 16px;
 }
 
 .ltablee tr td {
   width: 200px;
+  font-size: 15px;
 }
 
 .ltable table tr,
@@ -168,4 +170,36 @@
 
 .ltablee tr td:nth-child(9) {
   width: 100px;
+}
+
+.view {
+  background-color: #B4B4B8;
+  padding: .3rem;
+  cursor: pointer;
+  border: 1px solid #001242;
+  border-radius: 7px;
+}
+
+.update {
+  background-color: #a3d5ff;
+  padding: .3rem;
+  cursor: pointer;
+  border: 1px solid #001242;
+  border-radius: 7px;
+}
+
+.delete {
+  background-color: #E78895;
+  padding: .3rem;
+  cursor: pointer;
+  border: 1px solid #001242;
+  border-radius: 7px;
+}
+
+.view:hover,
+.update:hover,
+.delete:hover {
+  background-color: #473bf0;
+  color: #e2eafc;
+  /* font-weight: bold; */
 }

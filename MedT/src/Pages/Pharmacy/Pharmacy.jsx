@@ -6,8 +6,8 @@ import { addPharmThunk, fetchPharmThunk } from "../../store/features/Pharmacy/Ph
 import "./Pharm.css";
 import toast, {Toaster} from 'react-hot-toast';
 import PharChart from '../../components/Charts/PharChart';
-import {Bar, Line, Pie, Doughnut} from "react-chartjs-2";
-import {Chart as ChartJS, defaults} from "chart.js/auto";
+// import {Chart as ChartJS, defaults} from "chart.js/auto";
+// import {phData} from "../../data/pharmh.js";
 
 export default function Pharmacy() {
     const [drugName, setDrugName] = useState("");
@@ -19,7 +19,7 @@ export default function Pharmacy() {
     const pharmitems = useSelector(state => state.pharmItems);
     console.log(pharmitems);
     
-    // defaults.maintainAspectRatio = false;
+    // defaults.maintainAspectRatio = false; 
     defaults.responsive = true;
 
     defaults.plugins.title.display = true;
@@ -28,18 +28,18 @@ export default function Pharmacy() {
     defaults.plugins.title.color = "black";
 
     const [userData, setUserData] = useState({
-        labels: pharmitems.pharmItems.map(drug => (drug.drugName)),
+        labels: phData.map(drug => (drug.drugName)),
         datasets: [
             {
             label: "Unit of pricing",
-            data: Array(pharmitems.pharmItems).map(data => (data.unitOfPricing)),
+            data: phData.map(data => (data.unitOfPricing)),
             backgroundColor: ["red", "yellow", "green", "blue", "orange"],
             borderColor: "black",
             borderWidth: 2,
         },
         {
             label: "Drug Code",
-            data: pharmitems.pharmItems.map(data => (data.drugCode)),
+            data: phData.map(data => (data.drugCode)),
             backgroundColor: ["red", "yellow", "green", "blue", "orange"],
             borderColor: "black",
             borderWidth: 2,
@@ -178,8 +178,8 @@ export default function Pharmacy() {
                             </tbody>
                         </table>
                     </form>
-                    {/* <div className="chart" style={{width: "5vw", height:"60vh",position:"relative", marginBottom:"1%", padding:"1%"}}>
-                        <PharChart chartData={userData} 
+                    <div className="chart" style={{width: "5vw", height:"60vh",position:"relative", marginBottom:"1%", padding:"1%"}}>
+                        {/* <PharChart chartData={userData} 
                         // height="100px"
                         // width="10px" 
                         options={{
@@ -205,8 +205,8 @@ export default function Pharmacy() {
                               },
                             },
                           }}
-                        />
-                    </div> */}
+                        /> */}
+                    </div>
                 </div>
 
                 {

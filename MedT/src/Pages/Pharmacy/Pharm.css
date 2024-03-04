@@ -151,10 +151,12 @@
       text-align: center;
       background-color: #6f73d2;
       color: #dbfbec;
+      font-size: 16px;
     }
     td {
       text-align: center;
       background-color: #d7e3fc;
+      font-size: 15px;
     }
     td:hover {
       background-color: #7692ff;
@@ -162,7 +164,7 @@
   }
 
   .view {
-    background-color: #a3d5ff;
+    background-color: #B4B4B8;
     padding: .3rem;
     cursor: pointer;
     border: 1px solid #001242;
@@ -178,7 +180,7 @@
   }
 
   .delete {
-    background-color: #a3d5ff;
+    background-color: #E78895;
     padding: .3rem;
     cursor: pointer;
     border: 1px solid #001242;
@@ -190,5 +192,5 @@
   .delete:hover {
     background-color: #473bf0;
     color: #e2eafc;
-    font-weight: bold;
+    /* font-weight: bold; */
   }

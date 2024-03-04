@@ -6,7 +6,7 @@ import {Chart as ChartJS, defaults} from "chart.js/auto";
 export default function PharChart({chartData}) {
   return (
     <div style={{width: "700px"}}>
-        <Bar data={chartData} options={animator} />
+        <Bar data={chartData} />
     </div>
   )
 }

@@ -28,7 +28,6 @@ export default function L({labitem}) {
   const options1 = [
     {value: "Radiology", label: "Radiology"},
     {value: "Laboratory", label: "Laboratory"},
-    {value:  "Others", label: "Others"}
 ]
 
 const options2 = [

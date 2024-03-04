@@ -7,8 +7,8 @@ import "./Lab.css";
 import toast, {Toaster} from 'react-hot-toast';
 import Select from "react-select";
 import LaboChart from '../../components/Charts/LaboChart';
-import {Bar, Line, Pie, Doughnut} from "react-chartjs-2";
-import {Chart as ChartJS, defaults} from "chart.js/auto";
+// import {Chart as ChartJS, defaults} from "chart.js/auto";
+// import {labData} from "../../data/labh.js";
 
 export default function Laboratory() {
     const [itemName, setItemName] = useState("");
@@ -21,7 +21,6 @@ export default function Laboratory() {
     const options1 = [
         {value: "Radiology", label: "Radiology"},
         {value: "Laboratory", label: "Laboratory"},
-        {value:  "Others", label: "Others"}
     ]
 
     const options2 = [
@@ -43,18 +42,18 @@ export default function Laboratory() {
     defaults.plugins.title.color = "black";
 
     const [userData, setUserData] = useState({
-        labels: labitems.labItems.map(data => (data.itemName)),
+        labels: labData.map(data => (data.itemName)),
         datasets: [
             {
             label: "Laboratory types",
-            data: labitems.labItems.map(info => (info.labType)),
+            data: labData.map(info => (info.labType)),
             backgroundColor: ["red", "yellow", "green", "blue", "orange"],
             borderColor: "black",
             borderWidth: 2,
         },
         {
             label: "Laboratory item codes",
-            data: labitems.labItems.map(info => (info.itemCode)),
+            data: labData.map(info => (info.itemCode)),
             backgroundColor: ["red", "yellow", "green", "blue", "orange"],
             borderColor: "black",
             borderWidth: 2,
@@ -166,6 +165,12 @@ export default function Laboratory() {
                                                 backgroundColor: "#ccd5ff",
                                                 width: "10rem",
                                                 fontSize: "13px"
+                                            }),
+                                            clearIndicator: () => ({
+                                                color: "blue"
+                                            }), 
+                                            dropdownIndicator: () => ({
+                                                color: "black"
                                             })
                                         }}
                                         />
@@ -204,6 +209,12 @@ export default function Laboratory() {
                                                 backgroundColor: "#ccd5ff",
                                                 width: "10rem",
                                                 fontSize: "13px"
+                                            }),
+                                            clearIndicator: () => ({
+                                                color: "blue"
+                                            }), 
+                                            dropdownIndicator: () => ({
+                                                color: "black"
                                             })
                                         }}
                                         />
@@ -253,8 +264,8 @@ export default function Laboratory() {
                             </tbody>
                         </table>
                     </form>
-                    {/* <div className="chart">
-                        <LaboChart chartData={userData}
+                    <div className="chart">
+                        {/* <LaboChart chartData={userData}
                         // options={{ maintainAspectRatio: false }}
                          options={{
                             plugins: {
@@ -278,8 +289,8 @@ export default function Laboratory() {
                               },
                             },
                           }}
-                        />
-                    </div> */}
+                        /> */}
+                    </div>
                 </div>
 
                 {

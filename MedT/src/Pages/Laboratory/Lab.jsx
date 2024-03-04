@@ -28,7 +28,7 @@ export default function Lab({labitems}) {
       <div className="ltable">
         <table>
           <thead>
-                <tr>
+          <tr>
                   <th style={{width: "13%"}} >Item Name</th>
                   <th style={{width: "13%"}} >Lab Type</th>
                   <th style={{width: "13.9%"}} >Main Category</th>
@@ -45,6 +45,7 @@ export default function Lab({labitems}) {
             <L labitem={labitem} key={index} />
           ))
         }
+        <div className="pagination"></div>
       </div>
     </>
   )

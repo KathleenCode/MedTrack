@@ -6,7 +6,7 @@ import {Chart as ChartJS, defaults} from "chart.js/auto";
 export default function LaboChart({chartData}) {
   return (
     <div style={{width: "700px"}}>
-        <Bubble data={chartData} options={animator} />
+        <Bubble data={chartData}/>
     </div>
   )
 }
