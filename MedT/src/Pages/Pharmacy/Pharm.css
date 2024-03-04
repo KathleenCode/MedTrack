@@ -1,92 +1,136 @@
-.mainp {
-  background-color: #bbd0ff;
-  padding: 1rem;
-}
-
-.inph { 
-    background-color: #cae9ff;
-    padding: 1rem;
-} 
-
-.ph {
-    border-radius: 4px;
-    padding: 1rem;
-    background-color: #A9D3FF;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg fill-opacity='0.99'%3E%3Cpolygon fill='%23b6d7f9' points='800 100 0 200 0 800 1600 800 1600 200'/%3E%3Cpolygon fill='%23c2dbf5' points='800 200 0 400 0 800 1600 800 1600 400'/%3E%3Cpolygon fill='%23cddff1' points='800 300 0 600 0 800 1600 800 1600 600'/%3E%3Cpolygon fill='%23d7e3ef' points='1600 800 800 400 0 800'/%3E%3Cpolygon fill='%23e0e6ee' points='1280 800 800 500 320 800'/%3E%3Cpolygon fill='%23e7eaed' points='533.3 800 1066.7 800 800 600'/%3E%3Cpolygon fill='%23EEE' points='684.1 800 914.3 800 800 700'/%3E%3C/g%3E%3C/svg%3E");
-    background-attachment: fixed;
-    background-size: cover;
+/* form styling */
+.ph { 
+    padding: 1.5rem;
 }
 
 .grup {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+    height: 45vh;
+    width: 32rem;
+    margin: 0 1rem 1rem 1rem;
+    padding-left: 1rem;
+    border-radius: 1rem;
+    position: relative;
+    box-shadow: 0 0.1rem 0.2rem #181f6f;
 }
 
-.grup form table {
-    background-color: #fff9;
-    backdrop-filter: blur(7px);
-    box-shadow: 0, .4rem, .8rem #0005;
-    border-radius: 0.8rem;
-    padding: 1rem;
+.formHeading {
+  color: #181f6f; 
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  padding-bottom: 1rem;
+  padding-top: 0.5rem;
+  font-weight: normal;
 }
 
-.grup form label {
-    color: #001242;
-    font-weight: bold;
-    font-size: 15.3px;
-    box-shadow: inset 1px 1px 5px lightblue;
-    padding: .3rem;
+.form{
+  display: flex;
+  flex-direction: column;
 }
 
-.grup form input, textarea {
-    color: #310652;
-    background-color: #ccd5ff;
-    border-bottom: 1px solid #a9d6e5;
-    border-radius: 5px;
-    padding: .5rem;
-    box-shadow: inset 2px 2px 3px #bedffe;
-    border-top:  none;
-    border-left: none;
-    border-right: none;
-    font-size: 13px;
-    width: 10rem;
+.formControl {
+  display: flex;
+  align-items: center;
+  padding-bottom: 1rem;
+  margin-right: 1rem;
 }
 
-.grup form input::placeholder {
-  color: #183446;
+.formControl label {
+  width: 200px; 
+  width: 11rem;
+  text-align: left; 
+  display: inline-block;
+  color: #181f6f;
+  font-weight: bold;
 }
 
-.grup form input, textarea {
-  padding: .5rem;
-  background-color: #ebf2fa;
+.formControl input,
+.formControl select {
+  height: 2rem;
+  padding: .4rem 1rem;
+  border-radius: 5px;
+  border: 1px solid #fdf0d5;
+  margin-right: 1rem;
+  color: #070F2B;
 }
 
-.grup button {
-    color: #ccdbdc;
-    background-color: #386fa4;
-    border: 2px solid #481f7d;
-    border-radius: 5px;
-    padding: .55rem 1.3rem;
-    font-weight: bold;
-    margin: .4rem;
-    cursor: pointer;
+.formControl input,
+.formControl textarea {
+  width: 30rem;
+  border: 1px solid rgb(174, 174, 247);
+  outline: none;
+  border-radius: 0.5rem;
+  outline: none;
+  padding: 0.7rem 1rem;
+  font-size: 1rem;
 }
 
-.grup button:hover {
-    background-color: #702ac5;
+.addBtn {
+  background: rgb(173, 173, 248);
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  outline: none; 
+  position: absolute;
+  right: 0.7rem;
+  bottom: 0.5rem;
+  background: #181f6f;
+  color: #f4f7f8;
+  background: linear-gradient(#f4f7f8, #181f6f);
+  color: #181f6f;
+} 
+
+.addBtn:hover {
+  background: #f4f7f8;
+  color: #181f6f;
+  background: linear-gradient(#181f6f, #f4f7f8);
+  cursor: pointer;
 }
 
-/* .grup .chart {
-  position: relative,;
-  height: 70vh;
-  width: 40vw;
-} */
+/* table style */
+.ptable {
+  margin: 1.5rem 1rem 1rem 1rem;
+}
 
-  .search {
+.ptable table {
+  width: 100%;
+  border-collapse: collapse;
+  padding: 1rem;
+}
+
+.ptable th, .ptable td {
+  border:  1px solid rgb(213, 213, 239);
+  padding: 8px;
+  text-align: left;
+}
+
+.ptable th {
+  font-size: 0.9rem;
+  background: #012a4a;
+  color: #f4f7f8;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+/* .table tbody tr:nth-child(odd) {
+  background-color: #eca3a3; /* Change to your desired odd row color */
+/* } */ 
+
+.pharmTable .ptablee tr:nth-child(even) {
+  background: #389bd9;
+}
+
+.ptable td:hover {
+  background-color: #e9e9f7;
+  cursor: pointer;
+}
+
+
+/* the search */
+.search {
     position: relative;
     display: inline-block;
-    margin: .5rem;
-  }
+}
 
 .search .searchBox {
     height: 2rem;
@@ -94,8 +138,7 @@
     padding: 0.5rem 2rem 0.5rem 1rem;
     font-size: 1rem;
     border-radius: 1rem;
-    /* border: 1px solid rgb(213, 213, 239); */
-    border: 1.3px solid #7b44f2;
+    border: 1px solid rgb(201, 201, 234);
     outline: none;
     transition: width 0.4s ease-in-out;
 }
@@ -112,83 +155,79 @@
     color: rgb(141, 141, 165); 
   } 
 
+.viewBtn, .upBtn, .delBtn {
+  padding: 0.2rem;
+  margin-right: 0.5rem;
+  border: none;
+  border-radius: 0.3rem;
+  color: white; 
+} 
 
-  .modalTablep {
-    padding: 1rem;
-    margin: 1rem;
-    background-color: #A9D3FF;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%23b8daff' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%23c6e0ff' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%23d5e7ff' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%23e3edff' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%23F2F4FF' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
-    background-attachment: fixed;
-    background-size: cover;
-  }
-  
- 
-  .ptable table,
-  .ptablee {
-    width: 100%;
-    border-spacing: 0;
-    border-collapse: collapse;
-    border: 1px solid #ebebeb;
-    tr {
-      :last-child {
-        td {
-          border-bottom: 0;
-        }
-      }
-    }
-    th,
-    td {
-      margin: 0;
-      padding: .5rem;
-      border-bottom: 1px solid #ebebeb;
-      border-right: 1px solid #ebebeb;
-      :last-child {
-        border-right: 0;
-      }
-    }
-    th {
-      padding: .7rem;
-      text-align: center;
-      background-color: #6f73d2;
-      color: #dbfbec;
-    }
-    td {
-      text-align: center;
-      background-color: #d7e3fc;
-    }
-    td:hover {
-      background-color: #7692ff;
-    }
-  }
+.viewBtn {
+  background: gray;
+}
 
-  .view {
-    background-color: #a3d5ff;
-    padding: .3rem;
-    cursor: pointer;
-    border: 1px solid #001242;
-    border-radius: 7px;
-  }
+.viewBtn:hover, .viewBtn:focus, .viewBtn:visited {
+  color: gray;
+  border: 2px solid gray;
+  background: transparent;
+}
 
-  .update {
-    background-color: #a3d5ff;
-    padding: .3rem;
-    cursor: pointer;
-    border: 1px solid #001242;
-    border-radius: 7px;
-  }
+.upBtn {
+  background: #389bd9;
+}
 
-  .delete {
-    background-color: #a3d5ff;
-    padding: .3rem;
-    cursor: pointer;
-    border: 1px solid #001242;
-    border-radius: 7px;
-  }
+.upBtn:hover, .upBtn:focus, .upBtn:visited {
+  color: #389bd9;
+  border: 2px solid #389bd9;
+  background: transparent;
+}
 
-  .view:hover,
-  .update:hover,
-  .delete:hover {
-    background-color: #473bf0;
-    color: #e2eafc;
-    font-weight: bold;
-  }
+.delBtn {
+  background: #d14a55;
+}
+
+.delBtn:hover, .delBtn:focus, .delBtn:visited {
+  color: #d14a55;
+  border: 2px solid #d14a55;
+  background: transparent;
+}
+
+
+/* pagination styles */
+.pharmPagination {
+  display: flex;;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1rem;
+  list-style: none;
+}
+
+.page-item {
+  border: 1px solid rgb(163, 163, 240);
+  font-size: 1rem;
+  background-color: #eee;
+  font-family: inherit;
+  font-weight: 600;
+  background: transparent;
+  border-radius: 0.4rem;
+}
+
+.page-item a {
+  text-decoration: none;
+  color: #181f6f;
+}
+
+.page-link {
+  display: block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.4rem;
+  text-decoration: none;
+  color: #181f6f; 
+}
+
+.page-item.active .page-link {
+  background: #777fd4;
+  color: #fff;
+  font-weight: 700;
+}
