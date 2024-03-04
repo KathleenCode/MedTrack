@@ -76,7 +76,6 @@ export default function P({ pharmitem }) {
   return (
     <>
       <div>
-        {/* <table style={{ border: "1px solid black" }}> */}
         <table className="pharmTable">
           {
             <tbody className="ptablee">
@@ -131,8 +130,7 @@ export default function P({ pharmitem }) {
                     />{" "}
                     <br />
                     <label htmlFor="description">Description</label>
-                    <textarea
-                      type="textarea" 
+                    <textarea 
                       name="description"
                       id="description"
                       cols="30" 
