@@ -7,12 +7,12 @@ const labSchema = new Schema ({
     },
     labType: {
         type: String,
-        // required: true
+        required: true,
+        //enum: ['Radiology', 'Laboratory']
     },
     mainCategory: {
         type: String,
-        // required: true,
-        enum: ['Radiology', 'Laboratory']
+        //required: true, 
     },
     subCategory: {
         type: String,

@@ -79,7 +79,7 @@ export const updateMedicine = asyncHandler(async (req, res) => {
 
 
     const updateMed = req.body;
-    const editedMedicine = await Pharm.findOneAndUpdate(
+    const editedMedicine = await Pharm.findByIdAndUpdate(
         { _id: id },
         updateMed,
         {new: true}
