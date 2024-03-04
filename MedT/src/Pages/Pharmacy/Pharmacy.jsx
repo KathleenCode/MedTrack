@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { addPharmThunk, fetchPharmThunk } from "../../store/features/Pharmacy/PharmSlice";
 import "./Pharm.css";
+import toast, {Toaster} from 'react-hot-toast'
 
 export default function Pharmacy() {
     const [drugName, setDrugName] = useState("");
@@ -29,6 +30,14 @@ export default function Pharmacy() {
         }
         console.log(pharmItem);
         dispatch(addPharmThunk(pharmItem));
+        toast("Medicine added successfully", {
+            position: "top-center",
+            style: {
+              background: "#BA324F",
+              color: "white"
+            },
+            duration: 4000,
+          });
 
         setDrugName("");
         setDescription("");
@@ -57,6 +66,7 @@ export default function Pharmacy() {
         <div className="grup">
             <h3 className="formHeading">Please fill the form to add a new drug</h3>
             <form onSubmit={add} className="form">
+                <Toaster />
                 <div className="formControl">
                     <label htmlFor="drugName">Drug Name</label>
                     <input 

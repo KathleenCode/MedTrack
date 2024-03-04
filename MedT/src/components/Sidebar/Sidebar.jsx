@@ -1,7 +1,7 @@
 import React from 'react'
 import './Sidebar.css'
 import { Link } from 'react-router-dom'
-import { IoHomeOutline } from "react-icons/io5";
+// import { IoHomeOutline } from "react-icons/io5";
 import { MdOutlineLocalPharmacy } from "react-icons/md";
 import { HiBeaker } from "react-icons/hi2";
 
@@ -12,12 +12,12 @@ const Sidebar = () => {
         <aside>
             <div className="sidebar">
                 <ul>
-                    <li>
+                    {/* <li>
                         <Link>
                             <IoHomeOutline />
                             <span>Overview</span> 
                         </Link>
-                    </li>
+                    </li> */}
 
                     <li>
                         <Link to="pharmacy">

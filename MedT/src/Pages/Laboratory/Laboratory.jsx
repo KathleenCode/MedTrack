@@ -4,6 +4,7 @@ import { useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { addLabThunk, fetchLabThunk } from "../../store/features/Laboratory/LabSlice";
 import "./Lab.css";
+import toast, {Toaster} from 'react-hot-toast';
 
 export default function Laboratory() {
     const [itemName, setItemName] = useState("");
@@ -31,6 +32,15 @@ export default function Laboratory() {
         }
         console.log(labItem);
         dispatch(addLabThunk(labItem));
+
+        toast("Equipment added successfully", {
+            position: "top-center",
+            style: {
+              background: "#BA324F",
+              color: "white"
+            },
+            duration: 2000,
+          });
         
         setItemName("");
         setLabType("");
@@ -61,6 +71,8 @@ export default function Laboratory() {
 
         <div className="group">
             <form onSubmit={addOne} className="form">
+                <Toaster />
+
                 <div className="inputControl">
                     <label htmlFor="itemName">Lab Item Name</label>
                     <input 
@@ -107,7 +119,7 @@ export default function Laboratory() {
                     value={price} onChange={(e) => setPrice(e.target.value)} 
                     /> <br />
                 </div>
-                <button>ADD</button>
+                <button className='addBtn'>ADD</button>
             </form>
             <div className="chart"></div>
         </div>

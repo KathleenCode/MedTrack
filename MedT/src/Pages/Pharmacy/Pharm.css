@@ -1,3 +1,13 @@
+.mainp {
+  /* background-color: #bbd0ff; */
+  padding: 1rem;
+}
+
+.inph { 
+    /* background-color: #cae9ff; */
+    padding: 1rem;
+} 
+
 /* form styling */
 .ph { 
     padding: 1.5rem;
@@ -20,7 +30,16 @@
   padding-bottom: 1rem;
   padding-top: 0.5rem;
   font-weight: normal;
-}
+} 
+
+/* .grup form label {
+  color: #181f6f; 
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  padding-bottom: 1rem;
+  padding-top: 0.5rem;
+  font-weight: normal;
+} */
 
 .form{
   display: flex;
@@ -64,7 +83,7 @@
   font-size: 1rem;
 }
 
-.addBtn {
+/* .addBtn {
   background: rgb(173, 173, 248);
   padding: 0.5rem;
   font-size: 1rem;
@@ -78,9 +97,25 @@
   color: #f4f7f8;
   background: linear-gradient(#f4f7f8, #181f6f);
   color: #181f6f;
-} 
+}  */
 
-.addBtn:hover {
+.grup button {
+  background: rgb(173, 173, 248);
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  outline: none; 
+  position: absolute;
+  right: 0.7rem;
+  bottom: 0.5rem;
+  background: #181f6f;
+  color: #f4f7f8;
+  background: linear-gradient(#f4f7f8, #181f6f);
+  color: #181f6f;
+}
+
+.grup button:hover {
   background: #f4f7f8;
   color: #181f6f;
   background: linear-gradient(#181f6f, #f4f7f8);
@@ -124,6 +159,20 @@
   background-color: #e9e9f7;
   cursor: pointer;
 }
+
+.modalTablep {
+  padding: 1rem;
+  margin: 1rem;
+  background-color: #A9D3FF;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%23b8daff' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%23c6e0ff' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%23d5e7ff' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%23e3edff' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%23F2F4FF' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E");
+  background-attachment: fixed;
+  background-size: cover;
+}
+
+
+
+
+
 
 
 /* the search */
