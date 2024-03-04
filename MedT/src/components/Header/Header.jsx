@@ -12,9 +12,9 @@ const Header = () => {
                 <p className="logoText">MedTrack</p>
             </div>
 
-            <div className="user">
+            {/* <div className="user">
                 <p>Amin</p>
-            </div>
+            </div> */}
         </header>
     </>
   )

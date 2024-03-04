@@ -1,6 +1,5 @@
 
 .laby {
-  /* background-color: #b8c0ff; */
   padding: 1.5rem;
 }
 
@@ -46,8 +45,8 @@
 } */
  
 
-
-.ltable table {
+/* table style */
+/* .ltable table {
     border-collapse: collapse;
     width: 90%;
   }
@@ -83,6 +82,30 @@
   }
   .ltablee td:hover {
     background-color: #a682ff;
+  } */
+
+  .ltable {
+    margin: 1.5rem 1rem 1rem 1rem;
+  }
+  
+  .ltable table {
+    width: 100%;
+    border-collapse: collapse;
+    padding: 1rem;
+  }
+  
+  .ltable th, .ltable td {
+    border:  1px solid rgb(213, 213, 239);
+    padding: 8px;
+    text-align: left;
+  }
+  
+  .ltable th {
+    font-size: 0.9rem;
+    background: #012a4a;
+    color: #f4f7f8;
+    text-transform: uppercase;
+    letter-spacing: 2px;
   }
 
 
@@ -114,3 +137,42 @@
     transform: translateY(-50%);
     color: rgb(141, 141, 165); 
   } 
+
+
+  /* pagination styles */
+.labPagination {
+  display: flex;;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1rem;
+  list-style: none;
+}
+
+.page-item {
+  border: 1px solid rgb(163, 163, 240);
+  font-size: 1rem;
+  background-color: #eee;
+  font-family: inherit;
+  font-weight: 600;
+  background: transparent;
+  border-radius: 0.4rem;
+}
+
+.page-item a {
+  text-decoration: none;
+  color: #181f6f;
+}
+
+.page-link {
+  display: block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.4rem;
+  text-decoration: none;
+  color: #181f6f; 
+}
+
+.page-item.active .page-link {
+  background: #777fd4;
+  color: #fff;
+  font-weight: 700;
+}

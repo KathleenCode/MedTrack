@@ -72,6 +72,7 @@ export default function P({ pharmitem }) {
     const truncatedStr = pharmTruncate(str, maxLength);  
     console.log(truncatedStr);   
 
+
   return (
     <>
       <div>

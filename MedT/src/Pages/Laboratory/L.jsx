@@ -64,19 +64,31 @@ export default function L({labitem}) {
   return (
     <>
       <div className="ltablee">
-        {/* <table style={{ border: "1px solid black" }}> */}
         <table>
           {
             <tbody>
               <tr>
-                  <td>{labitem?.itemName}</td>
-                  <td>{labitem?.labType}</td>
-                  <td>{labitem?.mainCategory}</td>
-                  <td>{labitem?.subCategory}</td>
-                  <td>{labitem?.itemCode}</td>
-                  <td>{labitem?.price}</td>
-                <td>
+                  <td style={{width: "14%"}}>{labitem?.itemName}</td>
+                  <td style={{width: "14%"}}>{labitem?.labType}</td>
+                  <td style={{width: "15%"}}>{labitem?.mainCategory}</td>
+                  <td style={{width: "15%"}}>{labitem?.subCategory}</td>
+                  <td style={{width: "15%"}}>{labitem?.itemCode}</td>
+                  <td style={{width: "12%"}}>{labitem?.price}</td>
+                <td style={{width: "15%"}}>
+                  <button onClick={() => setVisible(true)}>view</button>
                   <button onClick={() => openModall()}>update</button>
+                  <button onClick={() => 
+                    {
+                      del(labitem._id);
+                    toast("equipment deleted successfully", {
+                      position: "top-center",
+                      style: {
+                        background: "#ba324f",
+                        color: "white"
+                      },
+                      duration: 4000,
+                    });}}>delete</button>
+                    <Toaster />
                 </td>
 
                 <Model
@@ -118,7 +130,6 @@ export default function L({labitem}) {
                       <option value="Virology">Virology</option>
                       <option value="Clinical">Clinical</option>
                       <option value="Research">Research</option>
-                      {/* <option value="Diagnostic">Diagnostic</option> */}
 
                     </select> <br />
                     <label htmlFor="subCategory">Sub Category</label>
@@ -143,8 +154,8 @@ export default function L({labitem}) {
                   </div>
                 </Model>
 
-                <td>
-                  <button onClick={() => 
+                {/* <td> */}
+                  {/* <button onClick={() => 
                     {
                       del(labitem._id);
                     toast("equipment deleted successfully", {
@@ -155,10 +166,10 @@ export default function L({labitem}) {
                       },
                       duration: 4000,
                     });}}>delete</button>
-                    <Toaster />
-                </td>
-                <td>
-                  <button onClick={() => setVisible(true)}>view</button>
+                    <Toaster /> */}
+                {/* </td> */}
+                {/* <td> */}
+                  {/* <button onClick={() => setVisible(true)}>view</button> */}
 
                   <Model
                     isOpen={visible}
@@ -187,7 +198,7 @@ export default function L({labitem}) {
                       <p style={{marginBottom: "1rem"}}>ItemCode:<span style={{color: "#a31621"}}>{labitem.itemCode}</span></p>
                       <p style={{marginBottom: "1rem"}}>Price:<span style={{color: "#a31621"}}>{labitem.price}</span></p>
                   </Model>
-                </td>
+                {/* </td> */}
               </tr>
             </tbody>
           }

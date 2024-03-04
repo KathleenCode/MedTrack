@@ -167,7 +167,7 @@
   background: gray;
 }
 
-.viewBtn:hover {
+.viewBtn:hover, .viewBtn:focus, .viewBtn:visited {
   color: gray;
   border: 2px solid gray;
   background: transparent;
@@ -177,7 +177,7 @@
   background: #389bd9;
 }
 
-.upBtn:hover {
+.upBtn:hover, .upBtn:focus, .upBtn:visited {
   color: #389bd9;
   border: 2px solid #389bd9;
   background: transparent;
@@ -187,9 +187,47 @@
   background: #d14a55;
 }
 
-.delBtn:hover {
+.delBtn:hover, .delBtn:focus, .delBtn:visited {
   color: #d14a55;
   border: 2px solid #d14a55;
   background: transparent;
 }
 
+
+/* pagination styles */
+.pharmPagination {
+  display: flex;;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 1rem;
+  list-style: none;
+}
+
+.page-item {
+  border: 1px solid rgb(163, 163, 240);
+  font-size: 1rem;
+  background-color: #eee;
+  font-family: inherit;
+  font-weight: 600;
+  background: transparent;
+  border-radius: 0.4rem;
+}
+
+.page-item a {
+  text-decoration: none;
+  color: #181f6f;
+}
+
+.page-link {
+  display: block;
+  padding: 0.2rem 0.6rem;
+  border-radius: 0.4rem;
+  text-decoration: none;
+  color: #181f6f; 
+}
+
+.page-item.active .page-link {
+  background: #777fd4;
+  color: #fff;
+  font-weight: 700;
+}
