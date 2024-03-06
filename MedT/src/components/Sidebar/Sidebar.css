@@ -17,10 +17,10 @@
 .sidebar ul li a{
     text-decoration: none;
     font-size: 1rem;
-    color: #181f6f;
+    color: var(--background-text);
     display: block;
     padding: 0.5rem;
-    border-top:  1px solid rgb(213, 213, 239);
+    border-top:  1px solid var(--border-color-six);
 }
 
 .sidebar ul li svg {
@@ -29,10 +29,15 @@
     font-size: 2rem;
 }
 
+.sidebar ul li a.active {
+    background: var(--active-link);
+    color: var(--font-color-one);
+  }
+
 .sidebar ul li a:hover{
-    background: rgb(178, 178, 223);
+    background: var(--background-color-five);
 }
 
 .sidebar ul li:last-child a {
-    border-bottom:  1px solid rgb(213, 213, 239);
+    border-bottom:  1px solid var(--border-color-six);
 }

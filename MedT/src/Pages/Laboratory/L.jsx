@@ -119,13 +119,13 @@ const options2 = [
                       },
                     }}
                   >
-                    <button style={{padding: ".7rem .9rem", marginBottom: "1rem", cursor: "pointer"}} onClick={() => setVisible(false)}>Go Back</button>
                       <p style={{margin: "1rem"}}>ItemName:<span style={{color: "#A31621", padding: "1rem"}}>{labitem.itemName}</span></p>
                       <p style={{margin: "1rem"}}>LabType:<span style={{color: "#A31621", padding: "1rem"}}>{labitem.labType}</span></p>
                       <p style={{margin: "1rem"}}>MainCategory:<span style={{color: "#A31621", padding: "1rem"}}>{labitem.mainCategory}</span></p>
                       <p style={{margin: "1rem"}}>SubCategory:<span style={{color: "#A31621", padding: "1rem"}}>{labitem.subCategory}</span></p>
                       <p style={{margin: "1rem"}}>ItemCode:<span style={{color: "#A31621", padding: "1rem"}}>{labitem.itemCode}</span></p>
                       <p style={{margin: "1rem"}}>Price:<span style={{color: "#A31621", padding: "1rem"}}>{labitem.price}</span></p>
+                    <button style={{padding: ".7rem .9rem", marginBottom: "1rem", cursor: "pointer"}} onClick={() => setVisible(false)}>Go Back</button>
                   </Model>
                   <button className="update" onClick={() => openModall()}>update</button>
                   <Model
@@ -148,7 +148,6 @@ const options2 = [
                     },
                   }}
                 >
-                  <button onClick={() => setUpdateModal(false)} style={{ backgroundColor: "#F2F4FF", borderRadius: "3px", padding: ".5rem 1rem", cursor: "pointer"}} >Go Back</button>
                   <div className="modalTablel">
                         <Toaster />
                         <table>
@@ -262,6 +261,7 @@ const options2 = [
                         </table>
                     <br />{" "}
                     <br />
+                    <button onClick={() => setUpdateModal(false)} style={{ backgroundColor: "#F2F4FF", borderRadius: "3px", padding: ".5rem 1rem", cursor: "pointer"}} >Go Back</button>
                     <button
                     style={{ backgroundColor: "#F2F4FF", borderRadius: "3px", padding: ".5rem 1rem", cursor: "pointer", border: "2px solid #1B4353"}}
                     onClick={() => {

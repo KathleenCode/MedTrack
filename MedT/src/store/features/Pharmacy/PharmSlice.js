@@ -26,7 +26,7 @@ export const fetchPharmThunk = createAsyncThunk("pharmItems/fetchPharm", async()
     try {
         const response = await fetch("http://localhost:9000/api/medicines");
         const data = await response.json();
-        console.log('pharmslice',data)
+        // console.log('pharmslice',data)
         return data;
     } catch(error) {
         console.log(error);
@@ -102,7 +102,7 @@ const pharmSlice = createSlice({
             state.loading = true;
         })
         .addCase(fetchPharmThunk.fulfilled, (state, action) => {
-            console.log("fetch",action);
+            // console.log("fetch",action);
             state.loading = false;
             state.pharmItems = action.payload;
         })

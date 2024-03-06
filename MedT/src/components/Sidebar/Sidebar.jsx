@@ -1,7 +1,7 @@
 import React from 'react'
 import './Sidebar.css'
-import { Link } from 'react-router-dom'
-// import { IoHomeOutline } from "react-icons/io5";
+import { Link, NavLink } from 'react-router-dom'
+import { IoHomeOutline } from "react-icons/io5";
 import { MdOutlineLocalPharmacy } from "react-icons/md";
 import { HiBeaker } from "react-icons/hi2";
 
@@ -12,25 +12,25 @@ const Sidebar = () => {
         <aside>
             <div className="sidebar">
                 <ul>
-                    {/* <li>
-                        <Link>
+                    <li>
+                        <NavLink to="/" exact="true" activeclassname="active">
                             <IoHomeOutline />
                             <span>Overview</span> 
-                        </Link>
-                    </li> */}
-
-                    <li>
-                        <Link to="pharmacy">
-                            <MdOutlineLocalPharmacy />
-                            <span>Pharmacy</span>
-                        </Link>
+                        </NavLink>
                     </li>
 
                     <li>
-                        <Link to="laboratory">
+                        <NavLink to="pharmacy" activeclassname="active">
+                            <MdOutlineLocalPharmacy />
+                            <span>Pharmacy</span>
+                        </NavLink>
+                    </li>
+
+                    <li>
+                        <NavLink to="laboratory" activeclassname="active">
                             <HiBeaker />
                             <span>Laboratory</span>
-                        </Link>
+                        </NavLink>
                     </li>
                 </ul>
             </div>

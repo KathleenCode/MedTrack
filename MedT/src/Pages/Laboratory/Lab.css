@@ -3,53 +3,90 @@
   padding: 1.5rem;
 }
 
+.labTop {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
 .group {
   margin: 2rem;
+  height: 50vh;
+  width: 32rem;
+  margin: 0 1.5rem 1rem 1rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  border-radius: 1rem;
+  position: relative;
+  box-shadow: 0 0.1rem 0.2rem var(--background-text); 
 }
+
+.labHeading {
+  color: var(--background-text); 
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  padding-bottom: 1rem;
+  padding-top: 0.5rem;
+  font-weight: normal;
+} 
 
 .form {
   display: flex;
-  flex-direction: column; 
+  flex-direction: column;
 }
 
-.input-group {
+.inputControl {
   display: flex;
   align-items: center;
   padding-bottom: 1rem;
   margin-right: 1rem;
 }
 
-/* .group label {
-    color: #001242;
-    margin-right: 1rem;
-    font-weight: bold;
-} */
-
-.input-group label {
+.inputControl label {
   width: 200px; 
   width: 11rem;
   text-align: left; 
   display: inline-block;
-  color: #181f6f;
+  color: var(--background-text);
   font-weight: bold;
 }
 
-.group form input, select {
-    margin-bottom: 1rem;
-    padding: .4rem 1rem;
-    /* background-color: #caf0f8; */
-    border-radius: 5px;
-    border: 1px solid #fdf0d5;
-    margin-right: 1rem;
+.inputControl input, .inputControl select {
+  height: 2rem;
+  padding: .4rem 1rem;
+  border-radius: 5px;
+  border: 1px solid var(--border-color-two);
+  margin-right: 1rem;
+  color: var(--background-text-two);
+  width: 30rem;
+  border: 1px solid var(--border-color-three);
+  outline: none;
+  border-radius: 0.5rem;
+  outline: none;
+  font-size: 1rem;
 }
 
-.group button {
-    color: #ccdbdc;
-    background-color: #00a5cf;
-    padding: .5rem 2rem;
-    border: 1px solid #304c89;
-    cursor: pointer;
+.addBtn {
+  padding: 0.5rem;
+  font-size: 1rem;
+  border-radius: 0.5rem;
+  border: none;
+  outline: none; 
+  position: absolute;
+  right: 0.3rem;
+  bottom: 0.5rem;
+  background: var(--button-color-four);
+  color: var(--background-color);
+  cursor: pointer;
 } 
+
+.addBtn:hover {
+  background: var(--background-color);
+  color: var(--background-text);
+  border: 2px solid var(--button-color-four);
+  font-weight: 550;
+  cursor: pointer;
+}
 
 
 /* .group .chart {
@@ -57,74 +94,47 @@
  
 
 /* table style */
+.ltable {
+  margin: 1.5rem 1rem 1rem 1rem;
+}
+
 .ltable table {
     border-collapse: collapse;
-    width: 90%;
+    width: 100%;
+    padding: 1rem;
   }
 
   .ltable th {
-    border: 1px solid #8b8c89;
-    text-align: center;
-    padding: 6px;
+    border: 1px solid var(--border-color-one);
+    text-align: left;
+    padding: 8px;
     padding-left: 6px;
-    font-size: .8rem;
-    background-color: #051923;
-    color: #e7ecef;
+    font-size: 1rem;
+    background-color: var(--background-color-four);
+    color: var(--font-color-two);
   }
-
 
 .ltablee table {
     border-collapse: collapse;
-    width: 90%;
+    width: 100%;
   }
 
   .ltablee td {
-    border: 1px solid #c0c0c0;
-    text-align: center;
+    border: 1px solid var(--border-color-seven);
+    text-align: left;
     padding: 6px;
     padding-left: 6px;
-    font-size: .8rem;
+    font-size: 1rem;
   }
-  .ltablee th {
-    /* background-color: #00a6fb; */
-    color: #ebebeb;
-  }
-  /* .ltablee td {
-    background-color: #9eb3c2;
-  } */
+ 
   .ltablee td:hover {
-    background-color: #dcd3f1;
+    background-color: var(--hover-color-one);
   } 
-
-  /* .ltable {
-    margin: 1.5rem 1rem 1rem 1rem;
-  }
-  
-  .ltable table {
-    width: 100%;
-    border-collapse: collapse;
-    padding: 1rem;
-  }
-  
-  .ltable th, .ltable td {
-    border:  1px solid rgb(213, 213, 239);
-    padding: 8px;
-    text-align: left;
-  }
-  
-  .ltable th {
-    font-size: 0.9rem;
-    background: #012a4a;
-    color: #f4f7f8;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-  } */
-
-
 
   .search {
     position: relative;
-    display: inline-block;
+    float: right;
+    margin: 1rem 1.5rem 1rem;
   }
 
 .search .searchBox {
@@ -133,9 +143,10 @@
     padding: 0.5rem 2rem 0.5rem 1rem;
     font-size: 1rem;
     border-radius: 1rem;
-    border: 1px solid rgb(213, 213, 239);
+    border: 1px solid var(--border-color-one);
     outline: none;
     transition: width 0.4s ease-in-out;
+    box-shadow: 0 0.1rem 0.2rem var(--button-color-four); 
 }
 
 .search .searchBox:focus {
@@ -147,37 +158,50 @@
     top: 50%;
     right: 0.5rem; 
     transform: translateY(-50%);
-    color: rgb(141, 141, 165); 
+    color: var(--search-color); 
   } 
 
 
+  /* call to action buttons */
+  .view, .update, .delete {
+    padding: 0.2rem;
+    margin-right: 0.5rem;
+    border: none;
+    border-radius: 0.3rem;
+    background: transparent;
+  } 
+
   .view {
-    background-color: #B4B4B8;
-    padding: .3rem;
-    cursor: pointer;
-    border: 1px solid #001242;
-    border-radius: 7px;
+    color: var(--button-color-one);
+    border: 2px solid var(--button-color-one);
+    background: transparent;
   }
+
+  .view:hover, .view:focus, .view:visited {
+    background: var(--button-color-one);
+    color: var(--font-color-one);
+  }
+
   .update {
-    background-color: #A3D5FF;
-    padding: .3rem;
-    cursor: pointer;
-    border: 1px solid #001242;
-    border-radius: 7px;
+    color: var(--button-color-two);
+    border: 2px solid var(--button-color-two);
+    background: transparent;
   }
+
+  .update:hover, .update:focus, .update:visited {
+    background: var(--button-color-two);
+    color: var(--font-color-one);
+  }
+
   .delete {
-    background-color: #E78895;
-    padding: .3rem;
-    cursor: pointer;
-    border: 1px solid #001242;
-    border-radius: 7px;
+    color: var(--button-color-three);
+    border: 2px solid var(--button-color-three);
+    background: transparent;
   }
-  .view:hover,
-  .update:hover,
-  .delete:hover {
-    background-color: #473BF0;
-    color: #E2EAFC;
-    /* font-weight: bold; */
+  
+  .delete:hover, .delete:focus, .delete:visited {
+    background: var(--button-color-three);
+    color: var(--font-color-one);
   }
 
 
@@ -191,18 +215,19 @@
 }
 
 .page-item {
-  border: 1px solid rgb(163, 163, 240);
+  border: 1px solid var(--border-color-four);
   font-size: 1rem;
-  background-color: #eee;
+  background-color: var(--background-color-two);
   font-family: inherit;
   font-weight: 600;
   background: transparent;
   border-radius: 0.4rem;
+  margin-right: 0.4rem;
 }
 
 .page-item a {
   text-decoration: none;
-  color: #181f6f;
+  color: var(--background-text);
 }
 
 .page-link {
@@ -210,11 +235,11 @@
   padding: 0.2rem 0.6rem;
   border-radius: 0.4rem;
   text-decoration: none;
-  color: #181f6f; 
+  color: var(--background-text); 
 }
 
 .page-item.active .page-link {
-  background: #777fd4;
-  color: #fff;
+  background: var(--background-color-three);
+  color: var(--font-color-one);
   font-weight: 700;
 }

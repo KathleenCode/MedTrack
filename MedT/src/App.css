@@ -6,8 +6,36 @@
   box-sizing: border-box;
 }
 
+:root {
+  --background-color: #f4f7f8;
+  --background-color-two: #eee;
+  --background-color-three: #777fd4;
+  --background-color-four: #051923;
+  --background-color-five: rgb(178, 178, 223);
+  --modal-background-color: #A9D3FF;
+  --logo-text: #2631a4;
+  --active-link: #aab3b9;
+  --font-color-one: #fff;
+  --font-color-two: #e7ecef;
+  --background-text: #181f6f;
+  --background-text-two: #070F2B;
+  --border-color-one: #8b8c89;
+  --border-color-two: #fdf0d5;
+  --border-color-three: rgb(174, 174, 247);
+  --border-color-four: rgb(163, 163, 240);
+  --border-color-five: rgb(201, 201, 234);
+  --border-color-six: rgb(213, 213, 239);
+  --border-color-seven: #c0c0c0;
+  --button-color-one: gray;
+  --button-color-two: #389bd9;
+  --button-color-three: #d14a55;
+  --button-color-four: #24295d;
+  --hover-color-one: #e9e9f7;
+  --search-color: rgb(141, 141, 165);
+}
+
 body {
-  background: #f4f7f8;
+  background: var(--background-color);
   font-family: 'Roboto', sans-serif;
 }
 

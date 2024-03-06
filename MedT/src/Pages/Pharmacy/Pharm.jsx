@@ -8,7 +8,8 @@ export default function Pharm({pharmitems}) {
   const [search, setSearch] = useState("");
 
   const [currentPage, setCurrentPage] = useState(1);
-  const [postsPerPage, setPostsPerPage] = useState(3)
+  const [postsPerPage, setPostsPerPage] = useState(3);
+
 
   const medicines = useMemo(() => {
     if(!search) return pharmitems.pharmItems;
@@ -17,12 +18,14 @@ export default function Pharm({pharmitems}) {
     })
   }, [search, pharmitems])
 
-  console.log("pharm",pharmitems);
+  // console.log("pharm",pharmitems);
 
 
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
-  const currentPosts = medicines.slice(firstPostIndex, lastPostIndex);
+  let currentPosts = medicines.slice(firstPostIndex, lastPostIndex);
+  currentPosts = currentPosts.reverse();
+
   const npage = Math.ceil(medicines.length / postsPerPage)
   const numbers = [...Array(npage + 1).keys()].slice(1)
 

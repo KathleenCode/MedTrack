@@ -70,7 +70,7 @@ export default function P({ pharmitem }) {
     const str = "pharmitem.description";  
     const maxLength = 50;  
     const truncatedStr = pharmTruncate(str, maxLength);  
-    console.log(truncatedStr);   
+    // console.log(truncatedStr);   
 
 
   return (
@@ -92,8 +92,8 @@ export default function P({ pharmitem }) {
                     toast("Currently viewing drug in pharmacy", {
                       position: "top-left",
                       style: {
-                    background: "#A6E1FA",
-                    color: "blue"
+                    background: "var(--background-color)",
+                    color: "var(--background-text)"
                     },
                     duration: 2000
                   });}
@@ -108,26 +108,28 @@ export default function P({ pharmitem }) {
                         background: "#transparent",
                       },
                       content: {
-                        backgroundColor: "#CAE5FF",
+                        background: "var(--background-color)",
                         width: "500px",
                         height: "400px",
-                        color: "#020887",
+                        color: "var(--background-text)",
                         marginTop: "5%",
                         marginLeft: "27%",
-                        borderLeft: "9px solid #597E52",
-                        textAlign: "center",
+                        textAlign: "left",
+                        borderRadius: "0.5rem",
+                        boxShadow: "0 0.1rem 0.2rem var(--background-text)",
+                        fontSize: "1rem"
                       },
                     }}
                   >
-                    <button style={{padding: ".7rem .9rem", marginBottom: "1rem", cursor: "pointer"}} onClick={() => setVisible(false)}>Go Back</button>
                     <p style={{margin: "1rem"}}>DrugName:<span style={{color: "#2C0735", padding: "1rem"}}>{pharmitem.drugName}</span></p>
                     <p style={{margin: "1rem"}}>Description:<span style={{color: "#2C0735", padding: "1rem"}}>{pharmitem.description}</span></p>
                     <p style={{margin: "1rem"}}>Price:<span style={{color: "#2C0735", padding: "1rem"}}>{pharmitem.price}</span></p>
                     <p style={{margin: "1rem"}}>DrugCode:<span style={{color: "#2C0735", padding: "1rem"}}>{pharmitem.drugCode}</span></p>
                     <p style={{margin: "1rem"}}>UnitOfPricing:<span style={{color: "#2C0735", padding: "1rem"}}>{pharmitem.unitOfPricing}</span></p>
+                    <button style={{padding: ".7rem .9rem", marginBottom: "1rem", cursor: "pointer"}} onClick={() => setVisible(false)}>Go Back</button>
                   </Model>
 
-                  <button className="update" onClick={() => openModall()}>update</button> 
+                  <button className="upBtn" onClick={() => openModall()}>update</button> 
                   <Model
                   isOpen={updateModal}
                   onRequestClose={() => openModal()
@@ -141,15 +143,16 @@ export default function P({ pharmitem }) {
                       width: "500px",
                       height: "500px",
                       marginLeft: "29%",
-                      color: "#480355",
-                      textAlign: "center",
-                      borderRadius: "15px",
+                      color: "var(--background-text)",
+                      textAlign: "left",
+                      borderRadius: "0.5rem",
                       padding: "2rem",
-                      border: "5px solid #BED8D4"
+                      fontSize: "1.1rem",
+                      boxShadow: "0 0.1rem 0.2rem var(--background-text)",
+                      background: "var(--background-color)"
                     },
                   }}
                 >
-                  <button onClick={() => setUpdateModal(false) } style={{padding: ".5rem 1rem", backgroundColor: "#F2F4FF", cursor: "pointer", borderRadius: "3px"}} >Go Back</button>
                   <div className="modalTablep">
                         <Toaster />
                         <table>
@@ -211,6 +214,7 @@ export default function P({ pharmitem }) {
                             </tbody>
                         </table>
                         <br />
+                        <button onClick={() => setUpdateModal(false) } style={{padding: ".5rem 1rem", backgroundColor: "#F2F4FF", cursor: "pointer", borderRadius: "3px"}} >Go Back</button>
                     <button style={{padding: ".5rem 1rem", backgroundColor: "#F2F4FF", cursor: "pointer", border: "2px solid #0072BB", borderRadius: "3px"}}
                     onClick={() => { updateOne(pharmitem._id);
                     toast("Drug information updated successfully", {
@@ -242,7 +246,7 @@ export default function P({ pharmitem }) {
                 }}>update</button> */}
                 
                   <button onClick={() => setPop(true)}
-                  className="delete"
+                  className="delBtn"
                   >delete</button>
                   <Toaster /> 
                   <Model isOpen={pop}
