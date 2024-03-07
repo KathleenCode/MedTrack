@@ -110,7 +110,7 @@
     padding: 8px;
     padding-left: 6px;
     font-size: 1rem;
-    background-color: var(--background-color-four);
+    background-color: var(--logo-text-one);
     color: var(--font-color-two);
   }
 
@@ -203,6 +203,117 @@
     background: var(--button-color-three);
     color: var(--font-color-one);
   }
+
+  /* modal buttons */
+  .labModalBtn_no, .labModalBtn_yes {
+    margin: .5rem;
+    padding: .5rem .9rem; 
+    cursor: pointer; 
+    border: none;
+    border-radius: 0.5rem;
+  }
+  .labModalBtn_no {
+    color: #10002b;
+    border: 2px solid var(--button-color-two);
+    background: white;
+  }
+  
+  .labModalBtn_no:hover, .labModalBtn_no:focus {
+    font-weight: bold;
+  }
+  
+  .labModalBtn_yes { 
+    color: #2c0735;
+    border: 2px solid var(--button-color-three);
+    background: white;
+  }
+  
+  .labModalBtn_yes:hover, .labModalBtn_yes:focus {
+    font-weight: bold;
+  }
+  
+  .backBtn {
+    padding: .5rem .9rem; 
+    margin: 1rem 1rem 0 1rem;
+    cursor: pointer;
+    color: var(--font-color-one); 
+    background: var(--button-color-four);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    border: none;
+  }
+  
+  .backBtn:hover, .backBtn:focus {
+    color: var(--button-color-four);
+    border: 2px solid var(--button-color-four);
+    background: transparent;
+  }
+  
+  .upModalBtn {
+    padding: .5rem .9rem;
+    color: var(--font-color-one);
+    cursor: pointer; 
+    background: var(--button-color-two);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    border: none;
+  }
+  
+  .upModalBtn:hover, .upModalBtn:focus {
+    color: var(--button-color-two);
+    border: 2px solid var(--button-color-two);
+    background: transparent;
+  }
+
+  /* update form styling */
+  .labView {
+    margin: 1rem;
+    padding: 1rem;
+    font-size: 1.1rem;
+    border: 1px solid #7785ac;
+    box-shadow: 1px 1px 1px #a080ed;
+  }
+
+  .labView td {
+    border: 1px solid #957fef;
+    padding: 1rem 2rem;
+  }
+
+  /* .labView p {
+    color: var(--button-color-four);
+    padding-bottom: 1rem;
+    font-size: 1.1rem;
+  }
+
+  .labView span {
+    color: var(--button-color-four); 
+    padding: 1rem;
+    margin-left: 1rem;
+  } */
+
+  .modalTable1 {
+    border: 3px solid red;
+  }
+
+  .modalTablel tr td label {
+    font-size: 1.1rem;
+    color: #240046;
+    font-weight: bold;
+  }
+
+  .modalTablel tr td input,
+  .modalTablel tr td select {
+    margin: .5rem;
+    padding: .5rem;
+    border-radius: 5px;
+    border: 1px solid #2f6690;
+    color: #240046;
+  }
+
+  .modalTablel tr td select {
+    width: 90%;
+  }
+  
 
 
   /* pagination styles */

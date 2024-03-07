@@ -134,7 +134,7 @@
 
 .ptable th {
   font-size: 0.9rem;
-  background: var(--background-color-four);
+  background: var(--logo-text-one);
   color: var(--background-color);
   text-transform: uppercase;
   letter-spacing: 2px;
@@ -144,20 +144,6 @@
   background-color: var(--hover-color-one);
   cursor: pointer;
 }
-
-/* .modalTablep {
-  /* padding: 1rem; */
-  /* margin: 1rem; */
-  /* background-color: var(--modal-background-color); */
-  /* background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100%25' height='100%25' viewBox='0 0 1600 800'%3E%3Cg %3E%3Cpolygon fill='%23b8daff' points='1600 160 0 460 0 350 1600 50'/%3E%3Cpolygon fill='%23c6e0ff' points='1600 260 0 560 0 450 1600 150'/%3E%3Cpolygon fill='%23d5e7ff' points='1600 360 0 660 0 550 1600 250'/%3E%3Cpolygon fill='%23e3edff' points='1600 460 0 760 0 650 1600 350'/%3E%3Cpolygon fill='%23F2F4FF' points='1600 800 0 800 0 750 1600 450'/%3E%3C/g%3E%3C/svg%3E"); */
-  /* background-attachment: fixed; */
-  /* background-size: cover; */
-/* } */ */
-
-
-
-
-
 
 
 /* the search */
@@ -231,6 +217,68 @@
   color: var(--font-color-one);
 }
 
+/* modal buttons */
+.delModalBtn_no, .delModalBtn_yes {
+  margin: .5rem;
+  padding: .5rem .9rem; 
+  cursor: pointer; 
+  border: none;
+  border-radius: 0.5rem;
+  background: transparent;
+}
+
+.delModalBtn_no {
+  color: var(--button-color-two);
+  font-weight: bold;
+  border: 2px solid var(--button-color-two);
+}
+
+.delModalBtn_yes { 
+  color: var(--button-color-three);
+  font-weight: bold;
+  border: 2px solid var(--button-color-three);
+  background: transparent;
+}
+
+.delModalBtn_no:hover, .delModalBtn_no:focus,
+.delModalBtn_yes:hover, .delModalBtn_yes:focus {
+  font-weight: bold;
+}
+
+.backBtn {
+  padding: .5rem .9rem; 
+  margin: 1rem 1rem 0 0;
+  cursor: pointer;
+  color: var(--font-color-one); 
+  background: var(--button-color-four);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  border: none;
+  align-self: center;
+}
+
+.backBtn:hover, .backBtn:focus {
+  color: var(--button-color-four);
+  border: 2px solid var(--button-color-four);
+  background: transparent;
+}
+
+.upModalBtn {
+  padding: .5rem .9rem;
+  color: var(--font-color-one);
+  cursor: pointer; 
+  background: var(--button-color-two);
+  border-radius: 0.5rem;
+  font-size: 1rem;
+  border: none;
+}
+
+.upModalBtn:hover, .upModalBtn:focus {
+  color: var(--button-color-two);
+  border: 2px solid var(--button-color-two);
+  background: transparent;
+}
+
 
 /* pagination styles */
 .pharmPagination {
@@ -269,4 +317,27 @@
   background: var(--background-color-three);
   color: var(--font-color-one);
   font-weight: 700;
+}
+
+.modalTablep tr td label {
+  color: #00171f;
+  padding: 1rem;
+  font-size: 1.1rem;
+  font-style: italic;
+}
+
+.modalTablep tr td input,
+.modalTablep tr td textarea {
+  color: #1f0083;
+  font-size: 0.9rem;
+  padding: 1rem 1.5rem;
+  margin: .3rem;
+  border-radius: 5px;
+  border: 1px solid #e4e9e7;
+  background-color: #d6d6d6;
+}
+
+.modalTablep tr td {
+  border: .5px solid #407385;
+  border-radius: 5px;
 }

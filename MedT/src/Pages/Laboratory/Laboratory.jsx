@@ -6,6 +6,7 @@ import { addLabThunk, fetchLabThunk } from "../../store/features/Laboratory/LabS
 import "./Lab.css";
 import toast, {Toaster} from 'react-hot-toast';
 import LabChart from '../../components/Charts/LabChart';
+import Select from "react-select";
 
 export default function Laboratory() {
     const [itemName, setItemName] = useState("");
@@ -19,6 +20,17 @@ export default function Laboratory() {
     const labitems = useSelector(state => state.labItems);
     // console.log(labitems);
     const isLoading = useSelector(state => state.loading);
+
+    const options1 = [
+        {value: "Radiology", label: "Radiology"},
+        {value: "Laboratory", label: "Laboratory"},
+    ]
+    const options2 = [
+        {value: "Diagnostic", label: "Diagnostic"},
+        {value: "Clinical", label: "Clinical"},
+        {value: "Research", label: "Research"},
+        {value:  "Others", label: "Others"}
+    ]
 
     const addOne = (e) => {
         e.preventDefault();
@@ -34,11 +46,11 @@ export default function Laboratory() {
         // console.log(labItem);
         dispatch(addLabThunk(labItem));
 
-        toast("Equipment added successfully", {
+        toast("lab item added successfully", {
             position: "top-center",
             style: {
-              background: "#BA324F",
-              color: "white"
+              background: "var(--background-color)",
+              color: "var(--button-color-two)"
             },
             duration: 2000,
           });
@@ -58,17 +70,6 @@ export default function Laboratory() {
   return (
     <div className="laby">
 
-        {/* <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <g clip-path="url(#clip0_1607_9770)">
-        <path d="M7.6 2.5V7.5C7.6 7.55523 7.55523 7.6 7.5 7.6H2.5C1.67157 7.6 0.999998 8.27157 1 9.1L1.00001 14.9C1.00001 15.7284 1.67158 16.4 2.50001 16.4H7.50001C7.55524 16.4 7.60001 16.4448 7.60001 16.5L7.6 21.5C7.6 22.3284 8.27157 23 9.1 23H14.9054C15.7338 23 16.4054 22.3284 16.4054 21.5L16.4054 16.4994C16.4054 16.4444 16.4498 16.3997 16.5048 16.3994L21.5092 16.3686C22.334 16.3636 23 15.6935 23 14.8687L23 9.06873C23 8.2367 22.3228 7.56364 21.4908 7.56876L16.506 7.59938C16.4505 7.59972 16.4054 7.55485 16.4054 7.49938V2.5C16.4054 1.67157 15.7338 1 14.9054 1H9.1C8.27157 1 7.6 1.67157 7.6 2.5Z" stroke="black" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
-        </g>
-        <defs>
-        <clipPath id="clip0_1607_9770">
-        <rect width="24" height="24" fill="white"/>
-        </clipPath>
-        </defs>
-        </svg>
-         */}
         <div className='labTop'>
             <div className="group">
                 <form onSubmit={addOne} className="form">
@@ -78,6 +79,7 @@ export default function Laboratory() {
                     <div className="inputControl">
                         <label htmlFor="itemName">Lab Item Name</label>
                         <input 
+                        autoComplete='false'
                         type="text" placeholder="Type lab name here" id="itemName"  name="itemName"
                         value={itemName} onChange={(e) => setItemName(e.target.value)}
                         />
@@ -105,6 +107,7 @@ export default function Laboratory() {
                     <div className="inputControl">
                         <label htmlFor="subCategory">Sub Category</label>
                         <input 
+                        autoComplete='false'
                         type="text" id="subCategory" placeholder="Stool" name="subCategory"
                         value={subCategory} onChange={(e) => setSubCategory(e.target.value)} 
                         /> <br />
@@ -112,18 +115,19 @@ export default function Laboratory() {
                     <div className="inputControl">
                         <label htmlFor="code" >Lab Item Code</label>
                         <input 
+                        autoComplete='false'
                         type="text" placeholder="Aoc123FH" id="code" name="code"
                         value={itemCode} onChange={(e) => setCode(e.target.value)} 
                         /> <br />
                     </div>
                     <div className="inputControl">
                         <label htmlFor="price">Price</label>
-                        <input 
+                        <input autoComplete='false'
                         type="number" placeholder="2.02" id="price" name="price"
                         value={price} onChange={(e) => setPrice(e.target.value)} 
                         /> <br />
                     </div>
-                    <button className='addBtn'>ADD</button>
+                    <button className='addBtn'>Add Item</button>
                 </form>
             </div>
 

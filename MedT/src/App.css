@@ -14,7 +14,9 @@
   --background-color-five: rgb(178, 178, 223);
   --modal-background-color: #A9D3FF;
   --logo-text: #2631a4;
+  --logo-text-one: rgb(67, 70, 109);
   --active-link: #aab3b9;
+  --active-link-two: #e7ebef;
   --font-color-one: #fff;
   --font-color-two: #e7ecef;
   --background-text: #181f6f;
@@ -26,6 +28,7 @@
   --border-color-five: rgb(201, 201, 234);
   --border-color-six: rgb(213, 213, 239);
   --border-color-seven: #c0c0c0;
+  --border-color-eight: rgb(208, 208, 210);
   --button-color-one: gray;
   --button-color-two: #389bd9;
   --button-color-three: #d14a55;
@@ -48,4 +51,5 @@ body {
   grid-template-areas: 
       "navbar navbar"
       "sidebar main";
+  overflow: hidden;
 }

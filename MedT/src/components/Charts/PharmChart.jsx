@@ -13,12 +13,12 @@ function PharmChart({chartData}) {
         {
           name: "Drug unit of pricing",
           data: pharmData.map(data => data.unitOfPricing),
-          // color: "lightblue"
+          color: "#a480cf"
         },
         {
           name: "Drug price",
           data: pharmData.map(data => data.price),
-          // color: "purple"
+          color: "#1282a2"
         }
       ]}
       options={{
@@ -26,7 +26,7 @@ function PharmChart({chartData}) {
           text: "Distribution of medicines in a hospital pharmacy unit",
           style: {
             fontSize: "15",
-            color: "blue"
+            color: "#003049"
           }
         },
         chart: {
@@ -46,7 +46,7 @@ function PharmChart({chartData}) {
             text: "Drug name",
             style: {
               fontSize: "13",
-              color: "green",
+              color: "#4b2154",
             }
           },
           categories: pharmData.map(data => data.drugName)
@@ -56,7 +56,7 @@ function PharmChart({chartData}) {
             text: "Distribution",
             style: {
               fontSize: "13",
-              color: "green"
+              color: "#4b2154"
             }
           }
         },

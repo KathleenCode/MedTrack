@@ -3,11 +3,12 @@ import { useDispatch } from "react-redux";
 import {
   updatePharmThunk,
   removePharmThunk,
-  fetchPharmThunk
+  fetchPharmThunk,
 } from "../../store/features/Pharmacy/PharmSlice";
 import Model from "react-modal";
-import toast, {Toaster} from "react-hot-toast";
+import toast, { Toaster } from "react-hot-toast";
 import "./Pharm.css";
+import { IoMdClose } from "react-icons/io";
 
 export default function P({ pharmitem }) {
   const dispatch = useDispatch();
@@ -38,11 +39,10 @@ export default function P({ pharmitem }) {
     setCode("");
     setPrice(0);
     setUpdateModal(false);
-
   };
 
   const dele = (id) => {
-      dispatch(removePharmThunk(id));
+    dispatch(removePharmThunk(id));
   };
 
   const openModall = () => {
@@ -55,23 +55,21 @@ export default function P({ pharmitem }) {
   };
 
   useEffect(() => {
-    dispatch(fetchPharmThunk())
-  },[dispatch])
-
+    dispatch(fetchPharmThunk());
+  }, [dispatch]);
 
   const pharmTruncate = (str, maxLength) => {
-    if (str.length>maxLength) {  
-      return str.substring(0, maxLength) + "...";  
-      } else {
-        return str;  
-      }  
+    if (str.length > maxLength) {
+      return str.substring(0, maxLength) + "...";
+    } else {
+      return str;
     }
+  };
 
-    const str = "pharmitem.description";  
-    const maxLength = 50;  
-    const truncatedStr = pharmTruncate(str, maxLength);  
-    // console.log(truncatedStr);   
-
+  const str = "pharmitem.description";
+  const maxLength = 50;
+  const truncatedStr = pharmTruncate(str, maxLength);
+  // console.log(truncatedStr);
 
   return (
     <>
@@ -80,24 +78,31 @@ export default function P({ pharmitem }) {
           {
             <tbody className="ptablee">
               <tr>
-                <td style={{ width: '20%' }}>{pharmitem.drugName}</td>
-                <td style={{ width: '30%' }}>{pharmTruncate(pharmitem.description, 50)}</td>
-                <td style={{ width: '12%' }}>{pharmitem.unitOfPricing}</td>
-                <td style={{ width: '14%' }}>{pharmitem.drugCode}</td>
-                <td style={{ width: '9%' }}>{pharmitem.price}</td>
-                <td style={{ width: '15%' }}>
-                  <button 
-                  className="viewBtn" onClick={() => {
-                    setVisible(true);
-                    toast("Currently viewing drug in pharmacy", {
-                      position: "top-left",
-                      style: {
-                    background: "var(--background-color)",
-                    color: "var(--background-text)"
-                    },
-                    duration: 2000
-                  });}
-                  }>view</button>  
+                <td style={{ width: "20%" }}>{pharmitem.drugName}</td>
+                <td style={{ width: "30%" }}>
+                  {pharmTruncate(pharmitem.description, 50)}
+                </td>
+                <td style={{ width: "12%" }}>{pharmitem.unitOfPricing}</td>
+                <td style={{ width: "14%" }}>{pharmitem.drugCode}</td>
+                <td style={{ width: "9%" }}>{pharmitem.price}</td>
+                <td style={{ width: "15%" }}>
+                  <button
+                    className="viewBtn"
+                    style={{ cursor: "pointer" }}
+                    onClick={() => {
+                      setVisible(true);
+                      toast("Currently viewing drug in pharmacy", {
+                        position: "top-left",
+                        style: {
+                          background: "var(--background-color)",
+                          color: "var(--background-text)",
+                        },
+                        duration: 1000,
+                      });
+                    }}
+                  >
+                    view
+                  </button>
                   <Toaster />
 
                   <Model
@@ -108,181 +113,353 @@ export default function P({ pharmitem }) {
                         background: "#transparent",
                       },
                       content: {
-                        background: "var(--background-color)",
+                        background: "#d2c5fc",
                         width: "500px",
-                        height: "400px",
-                        color: "var(--background-text)",
+                        height: "430px",
+                        color: "#015f4d",
                         marginTop: "5%",
                         marginLeft: "27%",
                         textAlign: "left",
-                        borderRadius: "0.5rem",
-                        boxShadow: "0 0.1rem 0.2rem var(--background-text)",
-                        fontSize: "1rem"
+                        border: "5px solid #a3bac3",
+                        borderRadius: "1rem",
+                        boxShadow: "0 0.1rem 0.3rem var(--background-text)",
+                        fontSize: "1rem",
                       },
                     }}
                   >
-                    <p style={{margin: "1rem"}}>DrugName:<span style={{color: "#2C0735", padding: "1rem"}}>{pharmitem.drugName}</span></p>
-                    <p style={{margin: "1rem"}}>Description:<span style={{color: "#2C0735", padding: "1rem"}}>{pharmitem.description}</span></p>
-                    <p style={{margin: "1rem"}}>Price:<span style={{color: "#2C0735", padding: "1rem"}}>{pharmitem.price}</span></p>
-                    <p style={{margin: "1rem"}}>DrugCode:<span style={{color: "#2C0735", padding: "1rem"}}>{pharmitem.drugCode}</span></p>
-                    <p style={{margin: "1rem"}}>UnitOfPricing:<span style={{color: "#2C0735", padding: "1rem"}}>{pharmitem.unitOfPricing}</span></p>
-                    <button style={{padding: ".7rem .9rem", marginBottom: "1rem", cursor: "pointer"}} onClick={() => setVisible(false)}>Go Back</button>
+                    <button
+                      style={{
+                        fontSize: "1rem",
+                        color: "#0e7395",
+                        backgroundColor: "#cad5ca",
+                        marginLeft: "25rem",
+                        borderRadius: "40%",
+                        padding: ".3rem",
+                        cursor: "pointer",
+                      }}
+                      onClick={() => setVisible(false)}
+                    >
+                      <IoMdClose />
+                    </button>
+                    <tr>
+                      <td
+                        style={{
+                          padding: ".5rem",
+                          color: "#000057",
+                          fontWeight: "bold",
+                          borderBottom: "1px solid #2c0735",
+                        }}
+                      >
+                        DrugName:
+                      </td>
+                      <td
+                        style={{
+                          margin: ".5rem",
+                          color: "#060047",
+                          borderBottom: "1px solid #2c0735",
+                        }}
+                      >
+                        {pharmitem.drugName}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        style={{
+                          padding: ".5rem",
+                          color: "#000057",
+                          fontWeight: "bold",
+                          borderBottom: "1px solid #2c0735",
+                        }}
+                      >
+                        Description:
+                      </td>
+                      <td
+                        style={{
+                          margin: ".5rem",
+                          color: "#060047",
+                          borderBottom: "1px solid #2c0735",
+                        }}
+                      >
+                        {pharmitem.description}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        style={{
+                          padding: ".5rem",
+                          color: "#000057",
+                          fontWeight: "bold",
+                          borderBottom: "1px solid #2c0735",
+                        }}
+                      >
+                        Price:
+                      </td>
+                      <td
+                        style={{
+                          margin: ".5rem",
+                          color: "#060047",
+                          borderBottom: "1px solid #2c0735",
+                        }}
+                      >
+                        {pharmitem.price}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        style={{
+                          padding: ".5rem",
+                          color: "#000057",
+                          fontWeight: "bold",
+                          borderBottom: "1px solid #2c0735",
+                        }}
+                      >
+                        DrugCode:
+                      </td>
+                      <td
+                        style={{
+                          margin: ".5rem",
+                          color: "#060047",
+                          borderBottom: "1px solid #2c0735",
+                        }}
+                      >
+                        {pharmitem.drugCode}
+                      </td>
+                    </tr>
+                    <tr>
+                      <td
+                        style={{
+                          padding: ".5rem",
+                          color: "#000057",
+                          fontWeight: "bold",
+                          borderBottom: "1px solid #2c0735",
+                        }}
+                      >
+                        UnitOfPricing:
+                      </td>
+                      <td
+                        style={{
+                          margin: ".5rem",
+                          color: "#060047",
+                          borderBottom: "1px solid #2c0735",
+                        }}
+                      >
+                        {pharmitem.unitOfPricing}
+                      </td>
+                    </tr>
+                    <button
+                      className="backBtn"
+                      onClick={() => setVisible(false)}
+                    >
+                      Go Back
+                    </button>
                   </Model>
 
-                  <button className="upBtn" onClick={() => openModall()}>update</button> 
+                  <button
+                    style={{ cursor: "pointer" }}
+                    className="upBtn"
+                    onClick={() => openModall()}
+                  >
+                    update
+                  </button>
                   <Model
-                  isOpen={updateModal}
-                  onRequestClose={() => openModal()
-                  }
-                  style={{
-                    overlay: {
-                      background: "transparent",
-                      backdropFilter: "blur(3px)"
-                    },
-                    content: {
-                      width: "500px",
-                      height: "500px",
-                      marginLeft: "29%",
-                      color: "var(--background-text)",
-                      textAlign: "left",
-                      borderRadius: "0.5rem",
-                      padding: "2rem",
-                      fontSize: "1.1rem",
-                      boxShadow: "0 0.1rem 0.2rem var(--background-text)",
-                      background: "var(--background-color)"
-                    },
-                  }}
-                >
-                  <div className="modalTablep">
-                        <Toaster />
-                        <table>
-                            <tbody>
-                                <tr>
-                                    <td>
-                                        <label htmlFor="drugName">Drug Name</label>
-                                    </td>
-                                    <td>
-                                        <input
-                                        type="text" placeholder="Type drug name here" id="drugName" name="drugName"
-                                        value={drugName} onChange={(e) => setDrugName(e.target.value)}
-                                        />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label htmlFor="description">Description</label>
-                                    </td>
-                                    <td>
-                                        <textarea placeholder="Describe drug here" id="description" name="description"
-                                        value={description} onChange={(e) => setDescription(e.target.value)}
-                                        >e</textarea>
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label htmlFor="pricing">Unit of Pricing</label>
-                                    </td>
-                                    <td>
-                                        <input
-                                        type="text" placeholder="Tablet" id="pricing" name="pricing"
-                                        value={unitOfPricing} onChange={(e) => setPricing(e.target.value)}
-                                        />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label htmlFor="code">Drug Code</label>
-                                    </td>
-                                    <td>
-                                        <input
-                                        type="text" placeholder="Aoc123FH" id="code" name="code"
-                                        value={drugCode} onChange={(e) => setCode(e.target.value)}
-                                        />
-                                    </td>
-                                </tr>
-                                <tr>
-                                    <td>
-                                        <label htmlFor="price">Price</label>
-                                    </td>
-                                    <td>
-                                        <input
-                                        type="number" placeholder="2.02" id="price" name="price"
-                                        value={price} onChange={(e) => setPrice(e.target.value)}
-                                        />
-                                    </td>
-                                </tr>
-                            </tbody>
-                        </table>
-                        <br />
-                        <button onClick={() => setUpdateModal(false) } style={{padding: ".5rem 1rem", backgroundColor: "#F2F4FF", cursor: "pointer", borderRadius: "3px"}} >Go Back</button>
-                    <button style={{padding: ".5rem 1rem", backgroundColor: "#F2F4FF", cursor: "pointer", border: "2px solid #0072BB", borderRadius: "3px"}}
-                    onClick={() => { updateOne(pharmitem._id);
-                    toast("Drug information updated successfully", {
-                      position: "top-center",
-                      style: {
-                      background: "#A6E1FA",
-                      color: "blue"
-                    },
-                    duration: 3000
-                  });
-                  setUpdateModal(false);
-                }}>
-                      update item
+                    isOpen={updateModal}
+                    onRequestClose={() => openModal()}
+                    style={{
+                      overlay: {
+                        background: "transparent",
+                        backdropFilter: "blur(3px)",
+                      },
+                      content: {
+                        width: "500px",
+                        height: "500px",
+                        marginLeft: "29%",
+                        color: "var(--background-color-four)",
+                        textAlign: "left",
+                        borderRadius: "1rem",
+                        padding: "2rem",
+                        fontSize: "1rem",
+                        boxShadow: "0 0.1rem 0.3rem var(--background-text)",
+                        background: "var(--active-link-two)",
+                        border: "1px solid #a855b2",
+                      },
+                    }}
+                  >
+                    <div className="modalTablep">
+                      <Toaster />
+                      <button
+                        style={{
+                          fontSize: "1rem",
+                          color: "#03045e",
+                          backgroundColor: "#70b8ba",
+                          marginLeft: "25rem",
+                          borderRadius: "40%",
+                          padding: ".3rem",
+                          cursor: "pointer",
+                        }}
+                        onClick={() => setUpdateModal(false)}
+                      >
+                        <IoMdClose />
+                      </button>
+                      <tr>
+                        <td>
+                          <label htmlFor="drugName">Drug Name</label>
+                        </td>
+                        <td>
+                          <input
+                            type="text"
+                            placeholder="Type drug name here"
+                            id="drugName"
+                            name="drugName"
+                            value={drugName}
+                            onChange={(e) => setDrugName(e.target.value)}
+                          />
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <label htmlFor="description">Description</label>
+                        </td>
+                        <td>
+                          <textarea
+                            placeholder="Describe drug here"
+                            id="description"
+                            name="description"
+                            value={description}
+                            onChange={(e) => setDescription(e.target.value)}
+                          >
+                            e
+                          </textarea>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <label htmlFor="pricing">Unit of Pricing</label>
+                        </td>
+                        <td>
+                          <input
+                            type="text"
+                            placeholder="Tablet"
+                            id="pricing"
+                            name="pricing"
+                            value={unitOfPricing}
+                            onChange={(e) => setPricing(e.target.value)}
+                          />
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <label htmlFor="code">Drug Code</label>
+                        </td>
+                        <td>
+                          <input
+                            type="text"
+                            placeholder="Aoc123FH"
+                            id="code"
+                            name="code"
+                            value={drugCode}
+                            onChange={(e) => setCode(e.target.value)}
+                          />
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <label htmlFor="price">Price</label>
+                        </td>
+                        <td>
+                          <input
+                            type="number"
+                            placeholder="2.02"
+                            id="price"
+                            name="price"
+                            value={price}
+                            onChange={(e) => setPrice(e.target.value)}
+                          />
+                        </td>
+                      </tr>
+                      <br />
+                      <button
+                        onClick={() => setUpdateModal(false)}
+                        className="backBtn"
+                      >
+                        Go Back
+                      </button>
+                      <button
+                        className="upModalBtn"
+                        onClick={() => {
+                          updateOne(pharmitem._id);
+                          toast("Drug information updated successfully", {
+                            position: "top-center",
+                            style: {
+                              background: "var(--background-color)",
+                              color: "var(--background-text)",
+                            },
+                            duration: 3000,
+                          });
+                          setUpdateModal(false);
+                        }}
+                      >
+                        Save
+                      </button>
+                      <Toaster />
+                    </div>
+                  </Model>
+                  <button
+                    style={{ cursor: "pointer" }}
+                    onClick={() => setPop(true)}
+                    className="delBtn"
+                  >
+                    delete
+                  </button>
+                  <Toaster />
+                  <Model
+                    isOpen={pop}
+                    onRequestClose={() => setPop(false)}
+                    style={{
+                      overlay: {
+                        background: "#transparent",
+                      },
+                      content: {
+                        backgroundColor: "#f8f7ff",
+                        width: "350px",
+                        height: "200px",
+                        color: "#012a4a",
+                        marginLeft: "35%",
+                        textAlign: "center",
+                        padding: "2rem",
+                        boxShadow: "0 0.1rem 0.2rem #00b0ff",
+                        borderRadius: "1rem",
+                        border: "3px solid #49b6ff",
+                      },
+                    }}
+                  >
+                    <h3 style={{ marginBottom: "1rem" }}>
+                      Are you certain that this medicine should be deleted?
+                    </h3>
+                    <button
+                      className="delModalBtn_no"
+                      onClick={() => setPop(false)}
+                    >
+                      No
+                    </button>
+                    <button
+                      className="delModalBtn_yes"
+                      onClick={() => {
+                        dele(pharmitem._id);
+                        toast("Medicine deleted successfully", {
+                          position: "bottom-right",
+                          style: {
+                            background: "#eaebed",
+                            color: "#16425b",
+                          },
+                          duration: 4000,
+                        });
+                        setPop(false);
+                      }}
+                    >
+                      Yes
                     </button>
                     <Toaster />
-                  </div>
-                </Model>
-                  {/* <button className="upBtn"
-                    onClick={() => { updateOne(pharmitem._id);
-                    toast("Drug information updated successfully", {
-                      position: "top-center",
-                      style: {
-                      background: "#A6E1FA",
-                      color: "blue"
-                    },
-                    duration: 3000
-                  });
-                  setUpdateModal(false);
-                }}>update</button> */}
-                
-                  <button onClick={() => setPop(true)}
-                  className="delBtn"
-                  >delete</button>
-                  <Toaster /> 
-                  <Model isOpen={pop}
-                           onRequestClose={() => setPop(false)}
-                          style={{
-                                overlay: {
-                                 background: "#transparent",
-                              },
-                              content: {
-                                backgroundColor: "#A9D6E5",
-                                width: "350px",
-                                height: "200px",
-                                color: "#C1121F",
-                                marginLeft: "35%",
-                                border: "9px solid #F7EFE5",
-                                textAlign: "center",
-                                padding: "2rem",
-                              },
-                            }}>
-                        <h3 style={{marginBottom: "1rem" }}>Are you certain that this medicine should be deleted?</h3>
-                        <button style={{margin: ".5rem", padding: ".5rem .9rem", cursor: "pointer"}} onClick={() => setPop(false)}>No</button>
-                        <button style={{margin: ".5rem", padding: ".5rem .9rem", cursor: "pointer"}} onClick={() =>
-                                 {
-                             dele(pharmitem._id);
-                             toast("Medicine deleted successfully", {
-                               position: "bottom-left",
-                               style: {
-                               background: "#A6E1FA",
-                               color: "blue"
-                        },
-                        duration: 4000
-                      });
-                      setPop(false);
-                      }}>Yes</button>
-                      <Toaster />
-                      </Model>      
+                  </Model>
                 </td>
               </tr>
             </tbody>
