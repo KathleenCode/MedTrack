@@ -58,6 +58,9 @@ export default function P({ pharmitem }) {
     dispatch(fetchPharmThunk());
   }, [dispatch]);
 
+  const str = "pharmitem.description";
+  const maxLength = 50;
+
   const pharmTruncate = (str, maxLength) => {
     if (str.length > maxLength) {
       return str.substring(0, maxLength) + "...";
@@ -66,8 +69,7 @@ export default function P({ pharmitem }) {
     }
   };
 
-  const str = "pharmitem.description";
-  const maxLength = 50;
+
   const truncatedStr = pharmTruncate(str, maxLength);
   // console.log(truncatedStr);
 
@@ -78,13 +80,13 @@ export default function P({ pharmitem }) {
           {
             <tbody className="ptablee">
               <tr>
-                <td style={{ width: "20%" }}>{pharmitem.drugName}</td>
+                <td style={{ width: "20%" }}>{pharmitem?.drugName}</td>
                 <td style={{ width: "30%" }}>
-                  {pharmTruncate(pharmitem.description, 50)}
+                  {pharmTruncate(pharmitem?.description, 50)}
                 </td>
-                <td style={{ width: "12%" }}>{pharmitem.unitOfPricing}</td>
-                <td style={{ width: "14%" }}>{pharmitem.drugCode}</td>
-                <td style={{ width: "9%" }}>{pharmitem.price}</td>
+                <td style={{ width: "12%" }}>{pharmitem?.unitOfPricing}</td>
+                <td style={{ width: "14%" }}>{pharmitem?.drugCode}</td>
+                <td style={{ width: "9%" }}>{pharmitem?.price}</td>
                 <td style={{ width: "15%" }}>
                   <button
                     className="viewBtn"
@@ -113,14 +115,13 @@ export default function P({ pharmitem }) {
                         background: "#transparent",
                       },
                       content: {
-                        background: "#d2c5fc",
+                        background: "var(--background-color)",
                         width: "500px",
                         height: "430px",
-                        color: "#015f4d",
+                        color: "var(--background-color-four)",
                         marginTop: "5%",
                         marginLeft: "27%",
                         textAlign: "left",
-                        border: "5px solid #a3bac3",
                         borderRadius: "1rem",
                         boxShadow: "0 0.1rem 0.3rem var(--background-text)",
                         fontSize: "1rem",
@@ -130,11 +131,11 @@ export default function P({ pharmitem }) {
                     <button
                       style={{
                         fontSize: "1rem",
-                        color: "#0e7395",
-                        backgroundColor: "#cad5ca",
+                        color: "var(--background-color-four)",
+                        backgroundColor: "var(--background-color)",
                         marginLeft: "25rem",
                         borderRadius: "40%",
-                        padding: ".3rem",
+                        padding: ".2rem",
                         cursor: "pointer",
                       }}
                       onClick={() => setVisible(false)}
@@ -144,19 +145,19 @@ export default function P({ pharmitem }) {
                     <tr>
                       <td
                         style={{
-                          padding: ".5rem",
-                          color: "#000057",
+                          padding: ".7rem",
+                          color: "var(--background-color-four)",
                           fontWeight: "bold",
-                          borderBottom: "1px solid #2c0735",
+                          borderBottom: "1px solid var(--border-color-nine)",
                         }}
                       >
                         DrugName:
                       </td>
                       <td
                         style={{
-                          margin: ".5rem",
-                          color: "#060047",
-                          borderBottom: "1px solid #2c0735",
+                          margin: ".7rem",
+                          color: "var(--background-color-four)",
+                          borderBottom: "1px solid var(--border-color-nine)",
                         }}
                       >
                         {pharmitem.drugName}
@@ -165,19 +166,19 @@ export default function P({ pharmitem }) {
                     <tr>
                       <td
                         style={{
-                          padding: ".5rem",
-                          color: "#000057",
+                          padding: ".7rem",
+                          color: "var(--background-color-four)",
                           fontWeight: "bold",
-                          borderBottom: "1px solid #2c0735",
+                          borderBottom: "1px solid var(--border-color-nine)",
                         }}
                       >
                         Description:
                       </td>
                       <td
                         style={{
-                          margin: ".5rem",
-                          color: "#060047",
-                          borderBottom: "1px solid #2c0735",
+                          margin: ".7rem",
+                          color: "var(--background-color-four)",
+                          borderBottom: "1px solid var(--border-color-nine)",
                         }}
                       >
                         {pharmitem.description}
@@ -186,19 +187,19 @@ export default function P({ pharmitem }) {
                     <tr>
                       <td
                         style={{
-                          padding: ".5rem",
-                          color: "#000057",
+                          padding: ".7rem",
+                          color: "var(--background-color-four)",
                           fontWeight: "bold",
-                          borderBottom: "1px solid #2c0735",
+                          borderBottom: "1px solid var(--border-color-nine)",
                         }}
                       >
                         Price:
                       </td>
                       <td
                         style={{
-                          margin: ".5rem",
-                          color: "#060047",
-                          borderBottom: "1px solid #2c0735",
+                          margin: ".7rem",
+                          color: "var(--background-color-four)",
+                          borderBottom: "1px solid var(--border-color-nine)",
                         }}
                       >
                         {pharmitem.price}
@@ -207,19 +208,19 @@ export default function P({ pharmitem }) {
                     <tr>
                       <td
                         style={{
-                          padding: ".5rem",
-                          color: "#000057",
+                          padding: ".7rem",
+                          color: "var(--background-color-four)",
                           fontWeight: "bold",
-                          borderBottom: "1px solid #2c0735",
+                          borderBottom: "1px solid var(--border-color-nine)",
                         }}
                       >
                         DrugCode:
                       </td>
                       <td
                         style={{
-                          margin: ".5rem",
-                          color: "#060047",
-                          borderBottom: "1px solid #2c0735",
+                          margin: ".7rem",
+                          color: "var(--background-color-four)",
+                          borderBottom: "1px solid var(--border-color-nine)",
                         }}
                       >
                         {pharmitem.drugCode}
@@ -228,19 +229,19 @@ export default function P({ pharmitem }) {
                     <tr>
                       <td
                         style={{
-                          padding: ".5rem",
-                          color: "#000057",
+                          padding: ".7rem",
+                          color: "var(--background-color-four)",
                           fontWeight: "bold",
-                          borderBottom: "1px solid #2c0735",
+                          borderBottom: "1px solid var(--border-color-nine)",
                         }}
                       >
                         UnitOfPricing:
                       </td>
                       <td
                         style={{
-                          margin: ".5rem",
-                          color: "#060047",
-                          borderBottom: "1px solid #2c0735",
+                          margin: ".7rem",
+                          color: "var(--background-color-four)",
+                          borderBottom: "1px solid var(--border-color-nine)",
                         }}
                       >
                         {pharmitem.unitOfPricing}
@@ -280,7 +281,7 @@ export default function P({ pharmitem }) {
                         fontSize: "1rem",
                         boxShadow: "0 0.1rem 0.3rem var(--background-text)",
                         background: "var(--active-link-two)",
-                        border: "1px solid #a855b2",
+                        overflow: "hidden",
                       },
                     }}
                   >
@@ -289,8 +290,8 @@ export default function P({ pharmitem }) {
                       <button
                         style={{
                           fontSize: "1rem",
-                          color: "#03045e",
-                          backgroundColor: "#70b8ba",
+                          color: "var(--background-text)",
+                          backgroundColor: "var(--background-color)",
                           marginLeft: "25rem",
                           borderRadius: "40%",
                           padding: ".3rem",
@@ -419,16 +420,15 @@ export default function P({ pharmitem }) {
                         background: "#transparent",
                       },
                       content: {
-                        backgroundColor: "#f8f7ff",
+                        backgroundColor: "var(--background-color)",
                         width: "350px",
                         height: "200px",
-                        color: "#012a4a",
+                        color: "var(--background-color-four)",
                         marginLeft: "35%",
                         textAlign: "center",
                         padding: "2rem",
-                        boxShadow: "0 0.1rem 0.2rem #00b0ff",
+                        boxShadow: "0 0.1rem 0.2rem var(--background-text)",
                         borderRadius: "1rem",
-                        border: "3px solid #49b6ff",
                       },
                     }}
                   >
@@ -446,7 +446,7 @@ export default function P({ pharmitem }) {
                       onClick={() => {
                         dele(pharmitem._id);
                         toast("Medicine deleted successfully", {
-                          position: "bottom-right",
+                          position: "top-right",
                           style: {
                             background: "#eaebed",
                             color: "#16425b",

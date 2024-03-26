@@ -105,7 +105,7 @@ const labSlice = createSlice({
             state.loading =true;
         })
         .addCase(fetchLabThunk.fulfilled, (state, action) => {
-            console.log("fetch", action);
+            // console.log("fetch", action);
             state.loading = false;
             state.labItems = action.payload;
         })

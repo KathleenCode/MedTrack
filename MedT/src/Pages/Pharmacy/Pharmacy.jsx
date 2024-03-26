@@ -72,6 +72,7 @@ export default function Pharmacy() {
                     <div className="formControl">
                         <label htmlFor="drugName">Drug Name</label>
                         <input 
+                            autoComplete='false'
                             type="text" placeholder="Type drug name here" id="drugName" name="drugName"
                             value={drugName} onChange={(e) => setDrugName(e.target.value)} 
                         /> <br />
@@ -79,6 +80,7 @@ export default function Pharmacy() {
                     <div className="formControl">
                         <label htmlFor="description">Description</label>
                         <input 
+                            autoComplete='false'
                             type="text" placeholder="describe drug" id="description" name="description"
                             value={description} onChange={(e) => setDescription(e.target.value)} 
                         /> <br />
@@ -86,6 +88,7 @@ export default function Pharmacy() {
                     <div className="formControl">
                         <label htmlFor="pricing">Unit of Pricing</label>
                         <input 
+                            autoComplete='false'
                             type="text" placeholder="Tablet" id="pricing" name="pricing"
                             value={unitOfPricing} onChange={(e) => setPricing(e.target.value)}
                         /> <br />
@@ -93,6 +96,7 @@ export default function Pharmacy() {
                     <div className="formControl">
                         <label htmlFor="code">Drug Code</label>
                         <input
+                            autoComplete='false'
                             type="text" placeholder="Aoc123FH" id="code" name="code"
                             value={drugCode} onChange={(e) => setCode(e.target.value)} 
                         /> <br />
@@ -100,6 +104,7 @@ export default function Pharmacy() {
                     <div className="formControl">
                         <label htmlFor="price">Price</label>
                         <input 
+                            autoComplete='false'
                             type="number" placeholder="2.02" id="price" name="price" className="priceInput"
                             value={price} onChange={(e) => setPrice(e.target.value)} 
                         /> <br />

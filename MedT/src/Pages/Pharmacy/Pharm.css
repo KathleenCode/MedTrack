@@ -341,3 +341,11 @@
   border: .5px solid #407385;
   border-radius: 5px;
 }
+
+@media only screen and (max-width: 900px) {
+  .pharmTop {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+}

@@ -19,7 +19,10 @@ export default function Lab({labitems}) {
 
   const lastPostIndex = currentPage * postsPerPage;
   const firstPostIndex = lastPostIndex - postsPerPage;
-  const currentPosts = equipments.slice(firstPostIndex, lastPostIndex);
+  let currentPosts = equipments.slice(firstPostIndex, lastPostIndex);
+  currentPosts = currentPosts.reverse();
+  
+  
   const npage = Math.ceil(equipments.length / postsPerPage);
   const numbers = [...Array(npage + 1).keys()].slice(1);
 

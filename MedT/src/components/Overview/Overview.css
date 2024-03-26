@@ -1,5 +1,180 @@
- *.overview {
-    margin: 3rem auto;
-    padding: 2rem;
-    text-align: center;
+.box {
+    position: relative;
+    width: 50px;
+    height: 50px;
+    margin: 2rem;
+    padding: .1rem;
+    background: repeating-conic-gradient(from var(--a), #8ECAE6 0%, #8ECAE6 5%, transparent 5%, transparent 40%, #669BBC 50%);
+    animation: animate 4s linear infinite;
+    border-radius: 20%;
+    right: 1rem;
+}
+@property --a {
+    syntax: "<angle>";
+    inherits: false;
+    initial-value: 0deg;
+}
+@keyframes animate {
+    0% {
+        --a: 0deg;
+    }
+    0% {
+        --a: 0deg;
+    }
+    100% {
+        --a: 360deg;
+    }
+}
+.box::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: repeating-conic-gradient(from var(--a), #884AB2 0%, #884AB2 5%, transparent 5%, transparent 40%, #884AB2 50%);
+    animation: animate 4s linear infinite;
+    animation-delay: -1s;
+    border-radius: 20%;
+}
+.boxx {
+    position: relative;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #5B2A86;
+    overflow: hidden;
+    border-radius: 20px;
+    left: 27rem;
+    top: 11rem;
+}
+.boxx::before {
+    content: "";
+    position: absolute;
+    width: 130px;
+    height: 110%;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(7, 7, 7);
+    animation: animatee 4s linear infinite;
+}
+.boxx::after {
+    content: "";
+    position: absolute;
+    inset: 10px;
+    background-color: #4CC9F0;
+    border-radius: 16px;
+}
+@keyframes animatee {
+    0% {
+        transform: rotate(0deg);
+    } 100% {
+        transform: rotate(360deg);
+    }
+}
+#main {
+    width: 90%;
+    height: 90%;
+    position: absolute;
+    overflow: hidden;
+    background-color: #F8F7FF;
+    border: 3px solid #CAF0F8;
+    border-radius: 3px;
+}
+#box1 {
+    width: 300px;
+    height: 300px;
+    background-image: url("../assets/images/ddpp.webp");
+    position: absolute;
+    bottom: -100%;
+    left: 30%;
+    animation: anim 2s fowards, anim2 3s forwards 3s;
+}
+#box1::after {
+    content: "";
+    position: absolute;
+    width: 300px;
+    height: 300px;
+    background-image: url('../assets/images/dph.webp');
+    left: 0px;
+    z-index: -1;
+}
+@keyframes anim {
+    from {
+        bottom: -100%;
+    }
+    to {
+        top: 0%;
+    }
+}
+@keyframes anim2 {
+    from {
+        left: 30%;
+        width: 530px;
+    }
+    to {
+        width: 0px;
+        left: 50%;
+    }
+}
+#box2 {
+    width: auto;
+    height: auto;
+    font-family: "Bahnschrift Condensed";
+    color: #003049;
+    font-size: 3.3em;
+    font-weight: 500;
+    line-height: 70px;
+    position: absolute;
+    top: 140px;
+    left: 150px;
+    overflow: hidden;
+}
+#text {
+    position: relative;
+    left: -100%;
+    animation: anim3 2s forwards 3s;
+}
+@keyframes anim3 {
+    from {
+        left: -100%;
+    }
+    to {
+        left: 0%;
+    }
+}
+#box3 {
+    overflow: hidden;
+}
+#container {
+    width: 100%;
+    position: absolute;
+    top: -100%;
+    animation: anim4 2s forwards 2.5s;
+}
+#logo {
+    float: right;
+    margin-right: -90px;
+    margin-top: 150px;
+}
+#logo img {
+    width: 300px;
+    border-radius: 5px;
+    filter: grayscale(70%);
+}
+#menu {
+    font-family: "Bahnschrift Condensed";
+    font-size: 17px;
+    color: blueviolet;
+    letter-spacing: 2px;
+    margin-right: 150px;
+    margin-top: 20px;
+    float: right;
+}
+@keyframes anim4 {
+    from {
+        top: -100%
+    }
+    to {
+        top: 0%;
+    }
 }

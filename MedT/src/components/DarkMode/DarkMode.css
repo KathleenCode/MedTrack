@@ -1,0 +1,45 @@
+.toggle-area {
+    position: absolute;
+    top: 0.5rem;
+    right: 1rem;
+    cursor: pointer;
+    border: 2px solid pink;
+}
+
+.darkmode-input {
+    visibility: hidden;
+}
+
+.darkmode-input + label {
+    font-size: 1.1rem;
+    cursor: pointer;
+    color: var(--background-text);
+}
+
+.darkmode-input + label::before {
+    content: "";
+    height: 1.1rem;
+    width: 2rem;
+    border-radius: 1rem;
+    background-color: var(--active-link);
+    margin-right: 0.5em;
+    display: inline-block;
+    transition: transform 0.4s, background-color 0.3s
+}
+
+.darkmode-input + label::after {
+    content: "";
+    height: 0.8rem;
+    width: 0.8rem;
+    border-radius: 1rem;
+    background-color: var(--background-color-four);
+    position: absolute;
+    left: 1rem;
+    top: 0.3rem;
+    transition: transform 0.4s, background-color 0.3s
+}
+
+.darkmode-input:checked + label::after {
+    transform: translateX(100%);
+}
+
